@@ -1,0 +1,62 @@
+html, body{
+	width:100%;
+	height:100%;
+}
+
+p{
+	font-size:30px;
+}
+p:first-of-type{
+	background-color:lightgray;
+}
+p:first-letter{
+	color:red;
+}
+.parent p::first-line{
+	color:yellow;
+}
+
+/* Safari syntax */
+:-webkit-full-screen {
+  background-color: yellow;
+}
+
+/* IE11 syntax */
+:-ms-fullscreen {
+  background-color: yellow;
+}
+
+/* Standard syntax */
+:fullscreen {
+  background-color: yellow;
+}
+
+/* Style the button */
+button {
+  padding: 20px;
+  font-size: 20px;
+}
+a[href]{
+	font-size:22px;
+	text-decoration:none;
+	margin:10px;
+}
+a[href*="www"]{
+	color:green;
+}
+
+/*
+	if we add '$' at the end of any attribute name inside the squre bracket it means it compaire all the word that ending with given attribute value inside the "" 
+	where i is for case insencitive match 
+*/
+a[href$=".com"]{
+	color:#000;
+}
+
+a[href$=".COM" i]{ /* here i add for case insencitive*/ 
+	font-size:3vw;
+}
+
+a[class~="logo"]{
+	color:red;
+}

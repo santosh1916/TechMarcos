@@ -1,0 +1,113 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	font-family: "Gilroy";
+}
+html, body{
+	width: 100%;
+	height: 100%;
+}
+.container{
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto;
+	background-color: lightgrey;
+}
+.box{
+	padding: 15px;
+}
+.heading-md{
+	font-size:20px;
+	padding-left: 20px;
+	background-color:lightsalmon;
+}
+.heading-md::before{
+	content: "Q ";
+}
+.text-sm{
+	font-size: 25px;
+	cursor: pointer;
+
+}
+.checked{
+	display:none;
+}
+
+input[type="checkbox"]{
+	display:none;
+}
+
+input[type="checkbox"]:checked ~ .checked{
+	display:inline;
+	color:green;
+	
+}
+
+input[type="checkbox"]:checked ~ .uncheck{
+	display:none;
+	
+}
+
+input[type="radio"]:checked + label .checked{
+	display:inline;
+	color:green;
+}
+input[type="radio"]:checked + label .uncheck{
+	display:none;
+}
+input[id*="Option"]{
+	display: none;
+}
+i{
+	font-size: 40px;
+}
+.table {
+	width: 100%;
+	border-collapse: collapse;
+  }
+
+  th, td {
+	border: 1px solid #ddd;
+	padding:5px;
+	font-size:22px;
+	text-align: left;
+  }
+
+  th {
+	background-color: lightcoral;
+  }
+
+  tbody tr:nth-child(3n + 2 ) {
+	background-color: rgb(195, 235, 195);
+  }
+
+  tfoot {
+	font-weight: bold;
+  }
+.box .col{
+	padding: 1vw;
+	background-color: lightgreen;
+	border: .5px solid #999;
+	display: inline-block;
+	cursor: pointer;
+	transition: all ease-in-out .5s;
+	margin-right: 10px;
+	font-size:25px;
+}
+
+.box .col:hover + .col + .col{
+	background-color: red;
+}
+.box .col:hover + .col{
+	transform: translateX(15px);
+}
+.list-box{
+	padding:20px;
+	margin-left:50px;
+	list-style:counter-increment;
+	font-size:25px;
+}
+.list-box li:not([class]){
+	color:red;
+}
