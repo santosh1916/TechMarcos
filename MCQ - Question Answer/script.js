@@ -31,13 +31,14 @@ questions.forEach((elem,index)=>{
     mainContainer.appendChild(container);
     
     // create another div class name = row. inside this put all option with label
-    elem.options.forEach((queOpt,index)=>{
+    elem.options.forEach((queOpt)=>{
         
         let optionBox = document.createElement("div")
         optionBox.className = "row";
         let inputbox = document.createElement("input");
-        inputbox.type = "checkbox";
+        inputbox.type = "radio";
         inputbox.setAttribute("id" , `${queOpt}`);
+        inputbox.setAttribute("name" , `${index}`);
         
         let labelForOption = document.createElement("label");
         labelForOption.setAttribute("for", `${queOpt}`)
@@ -76,7 +77,7 @@ questions.forEach((elem,index)=>{
     // Handle submit button click
     submitButton.addEventListener("click", () => {
         let selectedAnswers = [];
-        mainContainer.querySelectorAll('input[type="checkbox"]:checked').forEach((checkbox) => {
+        mainContainer.querySelectorAll('input[type="radio"]:checked').forEach((checkbox) => {
             selectedAnswers.push(checkbox.nextElementSibling.textContent);
         });
         compareQuestionAnswer(selectedAnswers,correctAnswer);
