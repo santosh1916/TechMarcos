@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO List</title>
+</head>
+<style>
+    .container {
+    max-width: 1000px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+#task {
+    padding: 10px 20px;
+    width: 70%;
+    margin-right: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 22px;
+}
+
+#addTask {
+    padding: 8px 12px;
+    background-color: #f3a8a8;
+    border: none;
+    font-size: 22px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#list-container {
+    list-style-type:decimal;
+    padding: 20px;
+}
+li{
+    font-size: 20px;
+    background-color: #ffdbdb;
+    text-align: start;
+    padding: 10px 20px;
+    margin-top: 5px;
+}
+
+</style>
+<body>
+    <!--2.Create To-Do List, so that user can add N number of tasks.-->
+    <div class="container">
+        <label for="task">Add Task</label>
+        <input type="text" id="task">
+        <button type="button" id="addTask" onclick="addList()">Add Task</button>
+        <div>
+            <ul id="list-container">
+                
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        let listContainer = document.getElementById("list-container");
+        let task = document.getElementById("task");
+        function addList(){
+            let taskValue = task.value
+            let list = document.createElement("li");
+            list.innerHTML = taskValue;
+            if(taskValue !== ""){
+                listContainer.appendChild(list);
+            }
+            else{
+                alert("Please fill your task!")
+            }
+            task.value = "";
+        }
+    </script>
+</body>
+</html>
