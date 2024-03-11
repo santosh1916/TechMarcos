@@ -32,7 +32,7 @@ function EditToggleClose() {
 >
   <i class="ri-close-large-line"></i>
 </button>
-<h2 class="text-xl heading">Edit Record Here!</h2>
+<h2 class="text-l heading">Edit Record Here!</h2>
 <form id="cardForm">
   <input type="text" class="inputfield" id="ExistingName" value="${existingRecords[index].fullname}" placeholder = "Update Your Name">
   <input type="email" class="inputfield" id="ExistingEmail" value="${existingRecords[index].email}" placeholder = "Update Your Email">
