@@ -1,27 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header class="clearfix">
-        <div class="logo">
-            <span class="text-md">CURD OPT</span>
-        </div>
-        <nav class="navigation">
-            <ul class="links-wrapper">
-                <li class="link"><a href="#" class="text-sm" title="Home">Home</a></li>
-                <li class="link"><a href="#" class="text-sm" title="All Items">All Items</a></li>
-                <li class="link"><a href="#" class="text-sm" title="Sign Up">Sign Up</a></li>
-                <li class="link"><a href="#" class="text-sm" title="Login">Login</a></li>
-            </ul>
-        </nav>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Madimi+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="clearfix bg">
+      <div class="logo">
+        <span class="text-xl madimi-one">CURD Opration</span>
+      </div>
+      <nav class="navigation">
+        <ul class="links-wrapper">
+          <li class="link"><a href="#" class="text-l" title="Home">Home</a></li>
+          <li class="link">
+            <a href="#" class="text-l" title="Sign Up">Sign Up</a>
+          </li>
+          <li class="link">
+            <a href="#" class="text-l" title="Login">Login</a>
+          </li>
+        </ul>
+      </nav>
     </header>
     <main>
-        <!-- Main thing inside this -->
+      <!-- Add Recorde Form  here -->
+        <section class="toggelForm" id="toggelAddRecord">
+        <button
+          type="button"
+          class="toogle-close"
+          id="closeToggle"
+          title="Close"
+          onclick="toggleClose()"
+        >
+          <i class="ri-close-large-line"></i>
+        </button>
+        <h2 class="text-xl heading">Add Card</h2>
+        <form id="cardForm">
+          <input type="text" class="inputfield" id="fullname" placeholder="Enter Full Name">
+          <input
+            type="email"
+            class="inputfield"
+            id="email"
+            placeholder="Enter your Email Address:"
+            required
+          />
+          <input
+            type="number"
+            id="phone"
+            class="inputfield"
+            placeholder="Enter Phone Number"
+            rows="5"
+            required
+          ></input>
+          <label for="profileImg">Choose your profile Photo</label>
+          <input
+            type="file"
+            class="inputfield"
+            id="profileImg"
+            required
+          />
+          <button type="button" class="btn btn-blue" title="Add Record" onclick="addRecord()">
+            Add Record
+          </button>
+        </form>
+      </section>
+
+      <!-- Edit Existing record -->
+      <section class="toggelForm" id="toggelEdit">
+        
+      </section>
+
+      <!-- Display Recorde -->
+      <section class="container" id="all-items">
+        <h2 class="text-xl heading">All Records</h2>
+        <table class="wrapper">
+          <thead>
+            <tr class="text-l">
+              <th>Profile Photo</th>
+              <th>Full Name:</th>
+              <th>Email Address:</th>
+              <th>Contact No:</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="all-record">
+            
+          </tbody>
+          <tfoot id="footer-display">
+            <tr>
+              <td class="text-l" colspan="1">Total Record:</td>
+              <td class="text-md" colspan="2" id="lengthUpdate"></td>
+              <td colspan="2" class="btn-wrapper">
+                <button type="button" class="btn-red btn" onclick="clearAllRecord()">Clear All</button>
+                <button type="button" class="btn-blue btn" onclick="toggleOpen()">Add New</button>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
     </main>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

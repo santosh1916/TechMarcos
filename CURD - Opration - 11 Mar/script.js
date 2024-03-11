@@ -1,0 +1,173 @@
+let toggleForm = document.getElementById("toggelAddRecord");
+let existingRecords = JSON.parse(localStorage.getItem("record")) || [];
+function toggleClose() {
+  toggleForm.style.transform = "scale(.1)";
+  toggleForm.style.top = "-50%";
+  toggleForm.style.left = "50%";
+}
+function toggleOpen() {
+  toggleForm.style.transform = "scale(1)";
+  toggleForm.style.transform = "translate(-50%, -50%)";
+  toggleForm.style.top = "50%";
+  toggleForm.style.left = "50%";
+}
+
+
+let toggleEdit = document.getElementById("toggelEdit")
+function EditToggleClose() {
+  toggleEdit.style.transform = "scale(.1)";
+  toggleEdit.style.top = "-50%";
+  toggleEdit.style.left = "50%";
+}
+
+
+  let editForm = document.createElement("div");
+  function EditToggleOpen(index) {
+  editForm.innerHTML = `<button
+  type="button"
+  class="toogle-close"
+  id="closeToggle"
+  title="Close"
+  onclick="EditToggleClose()"
+>
+  <i class="ri-close-large-line"></i>
+</button>
+<h2 class="text-xl heading">Edit Record Here!</h2>
+<form id="cardForm">
+  <input type="text" class="inputfield" id="ExistingName" value="${existingRecords[index].fullname}" placeholder = "Update Your Name">
+  <input type="email" class="inputfield" id="ExistingEmail" value="${existingRecords[index].email}" placeholder = "Update Your Email">
+  <input type="number" class="inputfield" id="ExistingNumber" value="${existingRecords[index].number}" placeholder = "Update Your Number">
+  <button type="button" class="btn btn-blue" title="Add Record" onclick="updateRecord(${index})">
+    Update Record
+  </button>
+</form>`
+toggleEdit.appendChild(editForm);
+  toggleEdit.style.transform = "scale(1)";
+  toggleEdit.style.transform = "translate(-50%, -50%)";
+  toggleEdit.style.top = "50%";
+  toggleEdit.style.left = "50%";
+
+}
+
+function updateRecord(index) {
+  let newName = document.getElementById("ExistingName").value;
+  let newEmail = document.getElementById("ExistingEmail").value;
+  let newNumber = document.getElementById("ExistingNumber").value;
+ 
+  if (newName !== ""){
+    existingRecords[index].fullname = newName;
+  }else if(newEmail !== ""){
+    existingRecords[index].email = newEmail;
+  }else if( newNumber !== ""){
+    existingRecords[index].number = newNumber;
+  }
+  // Update localStorage with the modified records
+  localStorage.setItem("record", JSON.stringify(existingRecords));
+
+  // Optionally, you can close the edit form or perform any other actions here
+  EditToggleClose();
+
+  // Reload existing records after updating
+  displayAllrecord();
+  updateRecordLength();
+}
+
+
+function addRecord() {
+  let fullname = document.getElementById("fullname").value;
+  let email = document.getElementById("email").value;
+  let number = document.getElementById("phone").value;
+  let profileImg = document.getElementById("profileImg").value;
+  console.log(profileImg)
+  // profileImg.value
+
+  let record = {
+    fullname: fullname,
+    email: email,
+    number: number,
+    profilePic: profileImg,
+  };
+
+  
+
+  // push new record
+  existingRecords.push(record);
+
+  // add item to localStorage
+  localStorage.setItem("record", JSON.stringify(existingRecords));
+  toggleClose();
+
+  // reload existing record after add new record
+  displayAllrecord();
+  updateRecordLength();
+}
+
+// Display all record
+function displayAllrecord() {
+  let recordWrapper = document.getElementById("all-record");
+  recordWrapper.innerHTML = "";
+
+  
+  existingRecords.forEach((record, index) => {
+    var recordContainer = createRecordCard(record, index);
+    recordWrapper.appendChild(recordContainer);
+  });
+  
+}
+
+function createRecordCard(record, index) {
+  let createRecord = document.createElement("tr");
+  createRecord.className = "row";
+  createRecord.innerHTML = `<td>
+  <div class="image">
+    <img
+      src="https://www.elevenforum.com/proxy.php?image=https%3A%2F%2Fi.hizliresim.com%2Fqde7y7b.png&hash=8840a7826b2be91b53ca4f36d7726152"
+      alt="Card Image"
+    />
+  </div>
+</td>
+<td class="text-sm">${record.fullname}</td>
+<td class="text-sm">${record.email}</td>
+<td class="text-sm">${record.number}</td>
+<td>
+  <button class="btn btn-theme" type="button" onclick="EditToggleOpen(${index})"><i class="ri-edit-box-line"></i></button>
+  <button class="btn btn-red" type="button" onclick="deleteOneItem(${index})"><i class="ri-delete-bin-6-line"></i></button>
+</td>`;
+  return createRecord;
+}
+
+// Delete items
+function deleteOneItem(index){
+  
+  existingRecords.splice(index,1)
+  localStorage.setItem("record", JSON.stringify(existingRecords));
+
+  displayAllrecord();
+  updateRecordLength();
+}
+
+// Update Recorde length
+function updateRecordLength(){
+  let allExistingRecord = JSON.parse(localStorage.getItem("record")) || [];
+  let length = allExistingRecord.length;
+  document.getElementById("lengthUpdate").innerText = length
+}
+
+// Clear All recorde
+function clearAllRecord(){
+  if(existingRecords.length !== 0){
+    alert("Are You want to Clear all Recorde please Confirm Us")
+    let confirmValue = prompt("Enter Y/N if You want to delete");
+    if(confirmValue === "y" || confirmValue === "Y"){
+      existingRecords = [];
+      localStorage.setItem("record", JSON.stringify(existingRecords));
+      displayAllrecord();
+      updateRecordLength();
+    }else{
+      alert("Thanku Your file is not deleted")
+    }
+  }
+}
+
+updateRecordLength()
+displayAllrecord();
