@@ -56,9 +56,11 @@ function updateRecord(index) {
  
   if (newName !== ""){
     existingRecords[index].fullname = newName;
-  }else if(newEmail !== ""){
+  }
+  if(newEmail !== ""){
     existingRecords[index].email = newEmail;
-  }else if( newNumber !== ""){
+  }
+  if( newNumber !== ""){
     existingRecords[index].number = newNumber;
   }
   // Update localStorage with the modified records

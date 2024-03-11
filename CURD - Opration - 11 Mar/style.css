@@ -115,6 +115,7 @@ header{
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
+    margin: 0 auto;
 }
 img{
     width: 100%;
@@ -127,10 +128,11 @@ img{
     padding:7px 10px;
     font-size: 20px;
     border-radius: 10px;
-    margin: 0 10px;
+    margin: 0 auto;
     border: none;
     cursor: pointer;
     transition: all ease-in-out .5s;
+
 }
 .preview-image:hover img{
     transform: scale(1.1);
@@ -149,6 +151,7 @@ img{
 }
 .btn-blue{
     background-color: lightskyblue;
+    margin-left: 10px;
 }
 .wrapper {
     margin-left: 20px;
@@ -156,7 +159,18 @@ img{
     border-collapse: collapse;
     margin-top: 20px;
   }
-
+  tbody tr , thead tr{
+    width: 100%;
+  }
+  tr td,tr th{
+    width: calc(100% / 4);
+  }
+  tr td:nth-child(1) , tr th:nth-child(1){
+    width: 5%;
+  }
+  tr td:nth-child(5) , tr th:nth-child(5){
+    width: 5%;
+  }
   th, td {
     border: 1px solid #8f7e7e;
     padding: 10px;
@@ -171,10 +185,4 @@ img{
   }
   tfoot td{
     text-align: center;
-  }
-  /* Responsive styles */
-  @media (max-width: 600px) {
-    th, td {
-      font-size: 12px;
-    }
   }
