@@ -112,7 +112,7 @@ header{
 .image{
     width: 60px;
     height: 60px;
-    border-radius: 50%;
+    border-radius: 5px;
     overflow: hidden;
     cursor: pointer;
     margin: 0 auto;
@@ -126,13 +126,16 @@ img{
 }
 .btn{
     padding:7px 10px;
-    font-size: 20px;
     border-radius: 10px;
+    font-size:20px;
     margin: 0 auto;
     border: none;
     cursor: pointer;
     transition: all ease-in-out .5s;
 
+}
+.btn i{
+    font-size: 33px;
 }
 .preview-image:hover img{
     transform: scale(1.1);
@@ -144,10 +147,12 @@ img{
     transform: scale(1.2);
 }
 .btn-red{
-    background-color: rgb(255, 104, 104);
+    background-color:transparent;
+    color:red;
 }
 .btn-theme{
-    background-color: rgb(110, 255, 110);
+    background-color:transparent;
+    color:rgb(110, 255, 110);
 }
 .btn-blue{
     background-color: lightskyblue;
@@ -161,6 +166,7 @@ img{
   }
   tbody tr , thead tr{
     width: 100%;
+    background-color:#9e9e9e;
   }
   tr td,tr th{
     width: calc(100% / 4);
@@ -169,7 +175,8 @@ img{
     width: 5%;
   }
   tr td:nth-child(5) , tr th:nth-child(5){
-    width: 5%;
+    width: 10%;
+    text-align: center;
   }
   th, td {
     border: 1px solid #8f7e7e;
@@ -181,7 +188,7 @@ img{
     background-color: #f2f2f2;
   }
   tfoot {
-    background-color: #9e9e9e;
+    background-color: #f2f2f2;
   }
   tfoot td{
     text-align: center;

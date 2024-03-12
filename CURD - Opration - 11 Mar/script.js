@@ -76,33 +76,50 @@ function updateRecord(index) {
 
 
 function addRecord() {
+  // Get form values
   let fullname = document.getElementById("fullname").value;
   let email = document.getElementById("email").value;
   let number = document.getElementById("phone").value;
-  let profileImg = document.getElementById("profileImg").value;
-  console.log(profileImg)
-  // profileImg.value
 
+  // Basic validation
+  if (!fullname || !email || !number) {
+    alert("Please fill out all required fields");
+    return;
+  }
+
+  // Email validation
+  let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert("Please enter a valid email address");
+    return;
+  }
+
+  // Phone number validation (assuming a simple format of 10 digits)
+  let phoneRegex = /^\d{10}$/;
+  if (!phoneRegex.test(number)) {
+    alert("Please enter a valid 10-digit phone number");
+    return;
+  }
+
+  // Create record object
   let record = {
     fullname: fullname,
     email: email,
     number: number,
-    profilePic: profileImg,
   };
 
-  
-
-  // push new record
+  // Push new record
   existingRecords.push(record);
 
-  // add item to localStorage
+  // Add item to localStorage
   localStorage.setItem("record", JSON.stringify(existingRecords));
   toggleClose();
 
-  // reload existing record after add new record
+  // Reload existing records after adding a new record
   displayAllrecord();
   updateRecordLength();
 }
+
 
 // Display all record
 function displayAllrecord() {
@@ -139,14 +156,23 @@ function createRecordCard(record, index) {
 }
 
 // Delete items
-function deleteOneItem(index){
-  
-  existingRecords.splice(index,1)
-  localStorage.setItem("record", JSON.stringify(existingRecords));
+function deleteOneItem(index) {
+  // Ask for confirmation
+  let confirmDelete = confirm("Are you sure you want to delete this item?");
 
-  displayAllrecord();
-  updateRecordLength();
+  // If the user clicks "OK" (true), proceed with deletion
+  if (confirmDelete) {
+    existingRecords.splice(index, 1);
+    localStorage.setItem("record", JSON.stringify(existingRecords));
+
+    displayAllrecord();
+    updateRecordLength();
+  } else {
+    // If the user clicks "Cancel" (false), do nothing
+    alert("Deletion canceled");
+  }
 }
+
 
 // Update Recorde length
 function updateRecordLength(){
@@ -166,7 +192,7 @@ function clearAllRecord(){
       displayAllrecord();
       updateRecordLength();
     }else{
-      alert("Thanku Your file is not deleted")
+      alert("All Deletion canceled")
     }
   }
 }
