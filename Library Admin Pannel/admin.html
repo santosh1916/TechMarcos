@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Madimi+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+      <div class="main-wrapper bg-blur">
+        <header class="clearfix">
+          <div class="logo"><span class="text-md">LOGO</span></div>
+          <nav class="wrapper">
+            <ul class="link-wrapper">
+              <li class="link theme-btn"><a href="#" title="Home"><i class="ri-home-2-line"></i></a></li>
+            </ul>
+            <div class="profile" id="user-profile">
+              <div class="display-icon-sm">
+                <img class="imagefix" src="https://static.vecteezy.com/system/resources/thumbnails/020/911/740/small/user-profile-icon-profile-avatar-user-icon-male-icon-face-icon-profile-icon-free-png.png" alt="">
+              </div>
+              <div class="toggle-profile">
+                <ul class="link-wrapper">
+                  <li><button type="button" class="theme-btn btn-color" title="View">View</button></li>
+                  <li><button type="button" class="theme-btn btn-color" title="Logout"><i class="ri-logout-circle-r-line"></i></button></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </header>
+        <section class="head clearfix">
+          <h1 class="heading">Library record</h1>
+          <div class="aline-right">
+            <button class="btn btn-red theme-btn" type="button" title="Delete"><i class="ri-delete-bin-6-line"></i></button>
+            <button class="btn theme-btn" type="button" title="Filter"><i class="ri-filter-3-line"></i></button>
+            <button class="btn btn-green theme-btn" type="button" title="Calculator"><i class="ri-calculator-line"></i></button>
+          </div>
+        </section>
+        <section class="container">
+
+          <!-- Add New User Form Here! -->
+          <section class="toggelForm" id="toggelAddRecord">
+            <button
+              type="button"
+              class="toogle-close"
+              id="closeToggle"
+              title="Close"
+              onclick="toggleClose()"
+            >
+              <i class="ri-close-large-line"></i>
+            </button>
+            <h2 class="text-md">Add New User</h2>
+            <form id="cardForm">
+              <input type="text" class="inputfield" id="fullname" placeholder="Enter Full Name">
+              <input
+                type="email"
+                class="inputfield"
+                id="email"
+                placeholder="Enter your Email Address:"
+                required
+              />
+              <input
+                type="number"
+                id="phone"
+                class="inputfield"
+                placeholder="Enter Phone Number"
+                max="10"
+                required
+              />
+              <button type="button" class="btn btn-blue" title="Add Record" onclick="addRecord()">
+                Add Record
+              </button>
+            </form>
+          </section>
+          <!-- Add new User Form End Here! -->
+          <!-- Table start here! -->
+          <table>
+            <thead class="text-md">
+              <tr>
+                <th>S.No</th>
+                <th>Profile</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Actions</th>
+              </tr>
+              </thead>
+            <tbody class="text-sm" id="wrapper">
+
+            </tbody>
+            <tfoot class="t-foot">
+              <tr class="t-footer">
+                <td class="text-md">ALl recored</td>
+                <td>All recored</td>
+                <td>
+                  <button class="theme-btn" type="button" title="Add New" onclick="toggleOpen()">New Entry <i class="ri-sticky-note-add-line"></i></button>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </section>
+      </div>
+    <script src="script.js"></script>
+  </body>
+</html>

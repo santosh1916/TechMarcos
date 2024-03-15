@@ -166,7 +166,7 @@ img{
   }
   tbody tr , thead tr{
     width: 100%;
-    background-color:#9e9e9e;
+    background-color:lightgray;
   }
   tr td,tr th{
     width: calc(100% / 4);

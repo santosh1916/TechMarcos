@@ -1,0 +1,404 @@
+:root{
+    --theme-light-color:rgb(14, 16, 15);
+    --theme-ext-light:rgba(14, 16, 15, 0.256);
+    --theme-dark-color:rgb(255, 252, 225);
+    --theme-ext-dark:rgba(255, 252, 225, 0.185);
+    --theme-color2: #ffc62b;
+    --btn-bg:rgb(255, 135, 9);
+    --btn-bg-light:rgba(255, 136, 9, 0.313);
+    --head-color:rgb(10, 228, 72);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html , body{
+    width: 100%;
+    height: 100%;
+    background-color: var(--theme-dark-color);
+}
+.sidebar{
+    background-color:var(--theme-light-color);
+    width: 70px;
+    height: 100%;
+    padding: 15px;
+    position: relative;
+    padding-top: 40px;
+    border-right: 1px solid var(--theme-ext-light);
+}
+.logo{
+    width: 90%;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.logo .image{
+    width: 100%;
+}
+.wrapper{
+    display: inline-block;
+    margin-left: 8px;
+    list-style: none;
+}
+.link{
+    padding: 10px 0;
+    cursor: pointer;
+}
+.link a{
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: 100;
+    color: var(--theme-dark-color);
+
+}
+.link-bottom{
+    position: absolute;
+    bottom: 10%;
+    left: 20%;
+    border-bottom: 1px solid var(--theme-dark-color);
+    width: 40%;
+}
+.display-icon-sm{
+    width: 40px;
+    height: 40px;
+    background-color: rgb(233, 255, 200);
+    border-radius: 100px;
+    overflow: hidden;
+}
+.user{
+    position: absolute;
+    bottom: 3%;
+    left: 15%;
+    cursor: pointer;
+}
+.imageFix{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.toggleProfile{
+    width: 0;
+    height: 20%;
+    background-color: var(--theme-light-color);
+    position: absolute;
+    bottom: 2%;
+    left: 100%;
+    z-index: 999;
+    transform-origin: left;
+    transition: all ease-in-out .5s; 
+    border-radius: 0 10px 10px 0;
+    padding-top:20px ;
+    border-top: 1px solid var(--theme-ext-light);
+    border-bottom: 1px solid var(--theme-ext-light);
+    border-right: 1px solid var(--theme-ext-light);
+}
+.logout-btn i{
+    color: red;
+    font-size: 2rem;
+}
+.toggle-btn{
+    transform: scale(0);
+    transition: all ease-in-out .3s;
+    margin: 0 auto;
+    display: block;
+    margin-top: 30px;
+    color: var(--theme-dark-color);
+}
+
+.container{
+    position: absolute;
+    width: calc(100% - 80px);
+    top: 0;
+    left: 80px;
+}
+.head-wrapper{
+    padding: 50px;
+}
+.clearfix::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+.heading-lg{
+    float: left;
+}
+.btn-wrapper{
+    float: right;
+}
+.head-wrapper .btn-red{
+    display: none;
+}
+.showBtn{
+    display: inline-block !important;
+}
+
+.text-xl{
+    font-size: 4rem;
+    color: var(--theme-light-color);
+}
+.text-l{
+    font-size: 2rem;
+    margin-left: 10px;
+    color: #000 !important;
+}
+.theme-color{
+    color: var(--btn-bg);
+}
+.btn{
+    padding: 7px 12px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    background-color: transparent;
+    border: none;
+    font-weight: 100;
+    cursor: pointer;
+}
+.add-btn{
+    background-color: var(--btn-bg);
+    color: var(--theme-dark-color);
+}
+
+.user-data{
+    width: calc(95% - 100px);
+    height: 75vh;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+.btn-red{
+    color: red;
+}
+.table-head tr{
+    transition: all ease-in-out .5s;
+    background-color: var(--theme-dark-color);
+    color: var(--theme-light-color);
+    border-radius:10px 10px 0 0;
+    box-shadow: 0 2px 5px -4px var(--theme-light-color);
+  }
+  thead th{
+      padding:15px;
+  }
+  .user-data tbody{
+    overflow: auto;
+    height: 100%;
+    max-height: 65vh;
+    display: block;
+  }
+  tbody::-webkit-scrollbar {
+    width: 4px;
+  }
+  tbody::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  tbody::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+    tr{
+    width: 100%;
+    display: table;
+  }
+  tbody tr{
+    color: var(--theme-light-color);
+    border-bottom: .1px solid var(--theme-ext-light);
+    transition: all ease .3s;
+  }
+  td, th {
+    padding:10px;
+  }
+  .user-data thead th:nth-child(1) , tbody td:nth-child(1){
+    width: 8%;
+    padding-left: 40px;
+    text-align: left;
+  }
+  .user-data thead th:nth-child(2), tbody td:nth-child(2){
+    width: 6%;
+    padding-left: 30px;
+  }
+  .user-data thead th:nth-child(3), tbody td:nth-child(3){
+    width: 20%;
+    text-align: center;
+  }
+  .user-data thead th:nth-child(4), tbody td:nth-child(4){
+    width: 20%;
+    text-align: center;
+  }
+  .user-data thead th:nth-child(5), tbody td:nth-child(5){
+    width: 20%;
+    text-align: center;
+  }
+  .user-data thead th:nth-child(6) , tbody td:nth-child(6){
+    width: 20%;
+    text-align: center;
+  }
+.t-foot tr{
+    font-weight: bold;
+    border-radius:0 0 10px 10px;
+    background-color: var(--theme-dark-color);
+    color: var(--theme-light-color);
+    font-size: 1.5rem;
+
+}  
+.t-foot td{
+    padding: 10px;
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+.input-name{
+    float: right;
+    margin-top: 3px;
+}   
+.checkbox-wrapper{
+    position: relative;
+    cursor: pointer;
+}
+.checkbox-wrapper i{
+    position: absolute;
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+table label{
+    min-width: 80px;
+    display: inline-block;
+}
+tbody label{
+    min-width: 60px;
+}
+.checkbox-wrapper .checked{
+    display: none;
+}
+input[type="checkbox"]:checked + .checkbox-wrapper .checked{
+    display: block;
+    color: var(--head-color);
+}
+
+/* Toggle container for all */
+.table-wrapper{
+    width: 35%;
+    min-width: 500px;
+    background-color: var(--theme-dark-color);
+    /* backdrop-filter: blur(10px); */
+    border: 1px solid var(--theme-ext-light);
+    position: absolute;
+    right: 5%;
+    top: 11%;
+    border-radius: 10px;
+    overflow: hidden;
+    transform: scaleY(0);
+    transition: all ease-in-out .3s;
+    transform-origin: top;
+}
+.text-l{
+    font-size: 2rem;
+    color: var(--theme-light-color);
+}
+.table-wrapper .user-data{
+    height: auto;
+    width: 100%;
+    font-size: 1.4rem;
+}
+.table-wrapper input{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--theme-light-color);
+    font-size: 1.1rem;
+    line-height: 2rem;
+    padding: 0 10px;
+    padding-top: 20px;
+    padding-bottom: 0;
+    overflow: visible;
+    border-bottom: 1px solid var(--theme-ext-light);
+}
+.table-wrapper tr{
+    border: none;
+}
+.table-wrapper tfoot tr{
+    box-shadow: none;
+    text-align: center;
+    background: none;
+}
+.table-wrapper .close-btn{
+    float: right;
+}
+.btn-submit {
+    background-color: var(--btn-bg);
+}
+.table-wrapper .close-btn{
+    background: none;
+}
+/* hover effect on input */
+.table-wrapper input:hover::placeholder{
+    color: var(--head-color);
+}
+.table-wrapper input:focus::placeholder{
+    color: var(--btn-bg);
+    transform: translate(-3%,-180%);
+    font-size: 14px;
+    transition-duration: .5s;
+}
+.calculator{
+    width: 35%;
+    min-width: 700px;
+    right: 12%;
+    top: 11%;
+    padding: 0 20px;
+}
+.calculator input{
+    width: 150px;
+}
+.calculator tbody td{
+    width: calc(100% / 4);
+}
+.calculator .user-data tbody{
+    padding: 50px 0;
+}
+button[title="Multiply"] i{
+    /* transform: rotateX(20); */
+}
+
+
+
+
+/* Hover for all */
+.btn-red:hover{
+    color: var(--theme-light-color);
+    background-color: red;
+}
+tbody tr:hover{
+    background-color: var( --btn-bg-light);
+}
+
+
+
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--theme-ext-light);
+    backdrop-filter: blur(10px);
+}
+.modal-content {
+    background-color: var(--theme-ext-dark);
+    backdrop-filter: blur(10px);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid var(--theme-ext-dark);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 0 6px 3px var(--theme-ext-light);
+}
+.modal-content button {
+    margin: 15px;
+}

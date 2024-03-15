@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <aside class="sidebar">
+            <div class="logo">
+                <img class="image" src="./logo.svg" alt="">
+            </div>
+            <nav class="parent">
+              <ul class="wrapper link-top">
+                <li class="link"><a href="#" title="Home"><i class="ri-home-4-line"></i></a></li>
+                <li class="link"><a href="#" title="All Recored"><i class="ri-checkbox-multiple-fill"></i></a></li>
+              </ul>
+              <ul class="wrapper link-bottom">
+                <li class="link"><a href="#" title="Setting"><i class="ri-settings-3-line"></i></a></li>
+              </ul>
+              <div class="display-icon-sm user">
+                <img class="imageFix" src="https://w7.pngwing.com/pngs/981/645/png-transparent-default-profile-united-states-computer-icons-desktop-free-high-quality-person-icon-miscellaneous-silhouette-symbol-thumbnail.png" alt="Default User">  
+              </div>
+            </nav>
+            <div class="toggleProfile" id="toggleProfile">
+                <button type="button" class="btn toggle-btn" title="View">View</button>
+                <button type="button" class="btn logout-btn toggle-btn" title="Logout"><i class="ri-logout-circle-r-line"></i></button>
+            </div>
+        </aside>
+        <section class="container">
+           <header class="head-wrapper clearfix">
+            <h1 class="text-xl heading-lg">Library <span class="theme-color">Store</span></h1>
+            <div class="btn-wrapper">
+                <button type="button" class="btn btn-red" id="bulk-delete" title="Delete" onclick="selectionBaseDelete()"><i class="ri-delete-bin-6-line"></i></button>
+                <button type="button" class="btn theme-btn" title="Calculator" onclick="openToggle('calculator')"><i class="ri-calculator-line"></i></button>
+                <button type="button" class="btn theme-btn add-btn" title="Add user" onclick="openToggle('addNewUser')"><i class="ri-add-line"></i> Add Users</button>
+            </div>
+           </header>
+            <table class="user-data">
+                <thead class="text-md table-head">
+                  <tr class="row">
+                    <th>
+                        <label for="index1">
+                            <input type="checkbox" id="index1"/>
+                            <span class="checkbox-wrapper">
+                                <i class="uncheck ri-checkbox-blank-circle-line"></i>
+                                <i class="checked ri-checkbox-circle-line"></i>
+                            </span>
+                            <span class="input-name">#S No.</span>
+                        </label>
+                    </th>
+                    <th>Profile</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                  </tr>
+                  </thead>
+                <tbody class="text-sm " id="wrapper">
+                    
+                </tbody>
+                <tfoot class="t-foot">
+                  <tr class="t-footer">
+                    <td class="text-md">All recored: <span id="recordLength">0</span></td>
+                  </tr>
+                </tfoot>
+              </table>
+        </section>
+        <section id="addNewUser" class="table-wrapper">
+            <form action="#">
+                <table class="user-data">
+                    <thead>
+                        <tr>
+                            <th><span class="text-l"><span class="theme-color">Register</span> new user's</span></th>
+                            <th><button type="button" class="close-btn theme-btn btn" title="Close" onclick="closeToggle('addNewUser')"><i class="ri-close-large-line"></i></button> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label for="fullname">Full Name:</label></td>
+                            <td><input type="text" class="input" id="fullname" placeholder="Enter your full name"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="email">Enter Email:</label></td>
+                            <td><input type="email" class="input" id="email" placeholder="Enter your email address"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="number">Enter Phone No:</label></td>
+                            <td><input type="number" class="input" id="number" maxlength="10" placeholder="Enter your phone no."></td>
+                        </tr>
+                    </tbody>
+                    <tfoot class="t-foot">
+                        <tr>
+                            <td><button type="submit" class="btn theme-btn btn-submit" onclick="return registerNewUser()">Submit</button></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </form>
+        </section>
+        <section id="calculator" class="table-wrapper calculator">
+                <table class="user-data">
+                    <thead>
+                        <tr>
+                            <th><span class="text-l"><span class="theme-color">Calculate</span></span></th>
+                            <th><button type="button" class="close-btn theme-btn btn" title="Close" onclick="closeToggle('calculator')"><i class="ri-close-large-line"></i></button> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="number" class="input" id="number1" placeholder="Value"></td>
+                            <td id="symbole"></td>
+                            <td><input type="number" class="input" id="number2" placeholder="Value"></td>
+                            <td>=</td>
+                            <td><input type="number" class="input" id="answer" title="Answer-box" value="0" readonly></td>
+                        </tr>
+                        <tr>
+                           <td>
+                            <button type="button" class="btn theme-btn" title="Addition" onclick="add()"><i class="ri-add-line"></i></button>
+                           <button type="button" class="btn theme-btn" title="Subtract" onclick="subtract()"><i class="ri-subtract-line"></i></button>
+                           <button type="button" class="btn theme-btn" title="Multiply" onclick="multiply()"><i class="ri-add-line"></i></button>
+                           <button type="button" class="btn theme-btn" title="Divide" onclick="divide()"><i class="ri-divide-line"></i></button>
+                        </td>
+                        <td><button type="submit" class="btn theme-btn btn-submit" onclick="calculate()">Calculate</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+        </section>
+        <section id="updateUser" class="table-wrapper updateuser">
+            <!-- Inject From the Js -->
+        </section>
+          <div id="confirmationModal" class="modal">
+            <div class="modal-content">
+              <p id="message" class="text-l"></p>
+              <button type="button" class="btn btn-red" onclick="confirmDelete()">Yes</button>
+              <button type="button" class="btn theme-btn" onclick="closeConfirmationModal()">No</button>
+            </div>
+          </div>
+        <script src="admin.js"></script>
+</body>
+</html>
