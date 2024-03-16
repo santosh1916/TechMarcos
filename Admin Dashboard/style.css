@@ -278,15 +278,14 @@ input[type="checkbox"]:checked + .checkbox-wrapper .checked{
 
 /* Toggle container for all */
 .table-wrapper{
-    width: 35%;
+    width: 20%;
     min-width: 500px;
     background-color: var(--theme-dark-color);
-    /* backdrop-filter: blur(10px); */
     border: 1px solid var(--theme-ext-light);
     position: absolute;
     right: 5%;
     top: 11%;
-    border-radius: 10px;
+    border-radius: 5px;
     overflow: hidden;
     transform: scaleY(0);
     transition: all ease-in-out .3s;
@@ -298,30 +297,46 @@ input[type="checkbox"]:checked + .checkbox-wrapper .checked{
 }
 .table-wrapper .user-data{
     height: auto;
-    width: 100%;
-    font-size: 1.4rem;
-}
-.table-wrapper input{
-    background: transparent;
-    border: none;
-    outline: none;
-    color: var(--theme-light-color);
-    font-size: 1.1rem;
-    line-height: 2rem;
-    padding: 0 10px;
-    padding-top: 20px;
-    padding-bottom: 0;
-    overflow: visible;
-    border-bottom: 1px solid var(--theme-ext-light);
 }
 .table-wrapper tr{
     border: none;
+    margin-top: 15px;
+
 }
-.table-wrapper tfoot tr{
-    box-shadow: none;
-    text-align: center;
-    background: none;
+.table-wrapper .input{
+    width: max-content;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 1px solid var(--theme-light-color);
+    font-size: 1.2rem;
+    padding: 7px 12px;
+    margin-left: 20px;
+
 }
+.table-wrapper .placeholder{
+    position: absolute;
+    left: 17%;
+    top: 20%;
+    pointer-events: none;
+    font-size: 1.4rem;
+    transition: all ease-in-out .5s;
+}
+
+/* ! this is working area */
+.table-wrapper .input:focus + .placeholder{
+    color: red;
+    left: 0;
+    top: -30%;
+    font-size: 1.1rem;
+}
+
+
+.table-wrapper td{
+    padding: 10px;
+    position: relative;
+}
+
 .table-wrapper .close-btn{
     float: right;
 }
@@ -332,16 +347,13 @@ input[type="checkbox"]:checked + .checkbox-wrapper .checked{
     background: none;
 }
 /* hover effect on input */
-.table-wrapper input:hover::placeholder{
-    color: var(--head-color);
-}
-.table-wrapper input:focus::placeholder{
-    color: var(--btn-bg);
-    transform: translate(-3%,-180%);
-    font-size: 14px;
-    transition-duration: .5s;
-}
+
+
+
+
 .calculator{
+    /*! remove this after test desplay none */
+    /* display: none;  */
     width: 35%;
     min-width: 700px;
     right: 12%;
@@ -369,7 +381,7 @@ button[title="Multiply"] i{
     color: var(--theme-light-color);
     background-color: red;
 }
-tbody tr:hover{
+.container tbody tr:hover{
     background-color: var( --btn-bg-light);
 }
 
@@ -389,7 +401,7 @@ tbody tr:hover{
     backdrop-filter: blur(10px);
 }
 .modal-content {
-    background-color: var(--theme-ext-dark);
+    background-color: var(--theme-dark-color);
     backdrop-filter: blur(10px);
     margin: 15% auto;
     padding: 20px;
