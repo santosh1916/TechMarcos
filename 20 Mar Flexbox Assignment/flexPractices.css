@@ -1,0 +1,35 @@
+ .container{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .row-bottom{
+        height: 300px;
+        display: flex;
+        gap: 10px;
+        flex-flow: column-reverse wrap-reverse;
+    }
+    .row-bottom>.col {
+        flex: 1 1 20px;
+    }
+    .col{
+        padding: 20px;
+        background-color: rgb(247, 234, 234);
+        border: 1px solid black;
+    }
+    .row-1{
+        display: flex;
+        gap: 10px;
+    }
+    .row-1 .col{
+        flex-grow:1;
+    }
+    .parent{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .child{
+        padding: 30px;
+        background-color: lightslategray;
+    }

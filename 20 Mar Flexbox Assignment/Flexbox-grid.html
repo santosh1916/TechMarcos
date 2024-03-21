@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox-grid</title>
+</head>
+<style>
+.row{
+    background: linear-gradient(#DA4E27 60% ,#AC3D3B);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 4px;
+}
+.col{
+    border: 1px solid #ffffffba;
+    border-radius: 3px;
+    min-height: 50px;
+    color: #fff;
+    background-color: #ffffff1d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-all;
+
+}
+.half{
+    width: calc(100% / 2 - 10px);
+    min-width: 200px;
+    
+}
+.forth{
+    width: calc(100% / 4 - 11px);
+    min-width: 200px;
+
+}
+.third{
+    width: calc(100% / 3 - 11px);
+    min-width: 200px;
+
+}
+.full{
+    width: calc(100% - 7px);
+    min-width: 200px;
+}
+.sixth{
+    width: calc(100% / 6 - 11px);
+    min-width: 92px;
+}
+</style>
+<body>
+      <div class="row">
+        <div class="col half">Half</div>
+        <div class="col half">Half</div>
+        <div class="col forth">Forth</div>
+        <div class="col forth">Forth</div>
+        <div class="col forth">Forth</div>
+        <div class="col forth">Forth</div>
+        <div class="col third">Third</div>
+        <div class="col third">Third</div>
+        <div class="col third">Third</div>
+        <div class="col full">Full</div>
+        <div class="col sixth">Sixth</div>
+        <div class="col sixth">Sixth</div>
+        <div class="col sixth">Sixth</div>
+        <div class="col sixth">Sixth</div>
+        <div class="col sixth">Sixth</div>
+        <div class="col sixth">Sixth</div>
+        <div class="col half">Half</div>
+        <div class="col half">Half</div>
+      </div>  
+</body>
+</html>

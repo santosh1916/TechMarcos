@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex - Practices</title>
+</head>
+<style>
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #BFDDC4;
+        padding: 5px;
+    }
+    .row{
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .col{
+        min-height: 100px;
+        min-width: 100px;
+        max-width: 50%;
+        max-height: max-content;
+        word-break: break-word;
+    }
+    .row-top>.col{
+        background-color: #D18179;
+        flex-basis: calc(100% / 3 - 7px);
+    }
+    .row-bottom>.box{
+        flex-basis: calc(100% / 2 - 7px);
+    }
+    .box-one{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(129, 145, 121);
+    }
+    .box-two{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .box-two>.col{
+        background-color: #89995F;
+        min-width: 100%;
+    }
+    .bg-yellow{
+        background-color: #FFF256;
+    }
+</style>
+<body>
+    <section class="wrapper">
+        <div class="row row-top">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+        <div class="row row-bottom">
+            <div class="box box-one">
+                <div class="col bg-yellow"></div>
+            </div>
+            <div class="box box-two">
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

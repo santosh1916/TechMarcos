@@ -3,149 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
-    rel="stylesheet"
-/>
-    <link rel="stylesheet" href="style.css">
+    <title>Admin - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarala:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
 </head>
 <body>
-        <aside class="sidebar">
-            <div class="logo">
-                <img class="image" src="./logo.svg" alt="">
-            </div>
-            <nav class="parent">
-              <ul class="wrapper link-top">
-                <li class="link"><a href="#" title="Home"><i class="ri-home-4-line"></i></a></li>
-                <li class="link"><a href="#" title="All Recored"><i class="ri-checkbox-multiple-fill"></i></a></li>
-              </ul>
-              <ul class="wrapper link-bottom">
-                <li class="link"><a href="#" title="Setting"><i class="ri-settings-3-line"></i></a></li>
-              </ul>
-              <div class="display-icon-sm user">
-                <img class="imageFix" src="https://w7.pngwing.com/pngs/981/645/png-transparent-default-profile-united-states-computer-icons-desktop-free-high-quality-person-icon-miscellaneous-silhouette-symbol-thumbnail.png" alt="Default User">  
-              </div>
-            </nav>
-            <div class="toggleProfile" id="toggleProfile">
-                <button type="button" class="btn toggle-btn" title="View">View</button>
-                <button type="button" class="btn logout-btn toggle-btn" title="Logout"><i class="ri-logout-circle-r-line"></i></button>
-            </div>
-        </aside>
-        <section class="container">
-           <header class="head-wrapper clearfix">
-            <h1 class="text-xl heading-lg">Library <span class="theme-color">Store</span></h1>
-            <div class="btn-wrapper">
-                <button type="button" class="btn btn-red" id="bulk-delete" title="Delete" onclick="selectionBaseDelete()"><i class="ri-delete-bin-6-line"></i></button>
-                <button type="button" class="btn theme-btn" title="Calculator" onclick="openToggle('calculator')"><i class="ri-calculator-line"></i></button>
-                <button type="button" class="btn theme-btn add-btn" title="Add user" onclick="openToggle('addNewUser')"><i class="ri-add-line"></i> Add Users</button>
-            </div>
-           </header>
-            <table class="user-data">
-                <thead class="text-md table-head">
-                  <tr class="row">
-                    <th>
-                        <label for="index1">
-                            <input type="checkbox" id="index1"/>
-                            <span class="checkbox-wrapper">
-                                <i class="uncheck ri-checkbox-blank-circle-line"></i>
-                                <i class="checked ri-checkbox-circle-line"></i>
-                            </span>
-                            <span class="input-name">#S No.</span>
-                        </label>
-                    </th>
-                    <th>Profile</th>
-                    <th>Full Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Actions</th>
-                  </tr>
-                  </thead>
-                <tbody class="text-sm " id="wrapper">
-                    
-                </tbody>
-                <tfoot class="t-foot">
-                  <tr class="t-footer">
-                    <td class="text-md">All recored: <span id="recordLength">0</span></td>
-                  </tr>
-                </tfoot>
-              </table>
-        </section>
-        <section id="addNewUser" class="table-wrapper">
-            <form action="#">
-                <table class="user-data">
-                    <thead>
-                        <tr>
-                            <th><span class="text-l"><span class="theme-color">Register</span> new user's</span></th>
-                            <th><button type="button" class="close-btn theme-btn btn" title="Close" onclick="closeToggle('addNewUser')"><i class="ri-close-large-line"></i></button> </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <input type="text" class="input" id="fullname">
-                                <label for="fullname" class="placeholder">Full Name:</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="email" class="input" id="email">
-                                <label for="email" class="placeholder">Enter Email:</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+    <aside class="sidebar" id="sidebar">
+        <nav class="navbar">
+            <ul class="wrapper top">
+                <!-- <li class="link logo"><a href="#">logo</a></li> -->
+                <li class="link logo">
+                    <button type="button" class="btn" title="toggle" onclick="openSideBar()">
+                     <span class="material-symbols-outlined">menu</span>
+                    </button>
+                    <button type="button" class="btn" onclick="closeSideBar()"><span class="open-sidebar material-symbols-outlined">close</span></button>
+                </li>
+                <li class="link">
+                    <a href="#" title="Home">
+                        <span class="material-symbols-outlined">home</span>
+                        <span class="open-sidebar">home</span>
+                    </a>
+                </li>
+                <li class="link">
+                    <a href="#" title="All Recored">
+                        <span class="material-symbols-outlined">library_add</span>
+                        <span class="open-sidebar">home</span>
+                    </a>
+                </li>
+                <li class="link">
+                    <a href="#" title="All Recored">
+                        <span class="material-symbols-outlined">favorite</span>
+                        <span class="open-sidebar">home</span>
+                    </a>
+                </li>
+                <li class="link">
+                    <a href="#" title="All Recored">
+                        <span class="material-symbols-outlined">search</span>
+                        <span class="open-sidebar">home</span>
+                    </a>
+                </li>
+                <li class="link">
+                    <a href="#" title="All Recored">
+                        <span class="material-symbols-outlined">download</span>
+                        <span class="open-sidebar">home</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="wrapper bottom">
+                <li class="link">
+                    <a href="#" title="Setting">
+                        <span class="material-symbols-outlined">settings</span>
+                        <span class="open-sidebar">home</span>
+                    </a>
+                </li>
+                <li class="link">
+                    <div class="user-profile"></div>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <section class="container">
+        <header class="head-wrapper clearfix">
+         <h1 class="text-2xl heading-lg">Library <span class="theme-color">Store</span></h1>
+         <div class="btn-wrapper">
+             <button type="button" class="btn btn-delete bulk-delete" id="bulk-delete" title="Delete" onclick="selectionBaseDelete()"></button>
+             <button type="button" class="btn" title="Calculator" onclick="openToggle('calculator','Calculator')"><i class="ri-calculator-line"></i></button>
+             <button type="button" class="btn add-btn" title="Add user" onclick="openToggle('addNewUser' , 'Add')"><i class="ri-add-line"></i> Add Users</button>
+         </div>
+        </header>
+        <table class="user-data">
+             <thead class="text-md ">
+               <tr class="row">
+                 <th>
+                     <label for="index1">
+                         <input type="checkbox" id="index1"/>
+                         <span class="checkbox-wrapper">
+                             <span class="uncheck material-symbols-outlined">check_box_outline_blank</span>
+                             <span class="checked material-symbols-outlined">select_check_box</span>
+                         </span>
+                         <span class="input-name">Id No.</span>
+                     </label>
+                 </th>
+                 <th>Join Date</th>
+                 <th>Users Detials</th>
+                 <th>Phone</th>
+                 <th>Actions</th>
+               </tr>
+             </thead>
+             <tbody class="text-sm " id="wrapper">
+
+             </tbody>
+             <tfoot class="t-foot">
+               <tr class="t-footer">
+                 <td class="text-md">All recored: <span id="recordLength">0</span></td>
+               </tr>
+             </tfoot>
+        </table>
+    </section>
+    <section id="addNewUser" class="form-wrapper">
+        <form action="#">
+            <table>
+                <thead>
+                    <tr>
+                        <th id="heading"></th>
+                        <th colspan="2"><button type="button" class="btn btn-close" title="Close" onclick="closeToggle('addNewUser')"><i class="ri-close-large-line"></i></button></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="input-container">
+                                <input type="text" class="input" id="fname">
+                                <label for="fname" class="placeholder">First Name:</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-container">
+                                <input type="text" class="input" id="lname">
+                                <label for="lname" class="placeholder">Last Name:</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-container">
                                 <input type="number" class="input" id="number" maxlength="10">
                                 <label for="number" class="placeholder">Enter Phone No:</label>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <tfoot class="t-foot">
-                        <tr>
-                            <td><button type="submit" class="btn theme-btn btn-submit" onclick="return registerNewUser()">Submit</button></td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </form>
-        </section>
-        <section id="calculator" class="table-wrapper calculator">
-                <table class="user-data">
-                    <thead>
-                        <tr>
-                            <th><span class="text-l"><span class="theme-color">Calculate</span></span></th>
-                            <th><button type="button" class="close-btn theme-btn btn" title="Close" onclick="closeToggle('calculator')"><i class="ri-close-large-line"></i></button> </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><input type="number" class="input" id="number1" placeholder="Value"></td>
-                            <td id="symbole"></td>
-                            <td><input type="number" class="input" id="number2" placeholder="Value"></td>
-                            <td>=</td>
-                            <td><input type="number" class="input" id="answer" title="Answer-box" value="0" readonly></td>
-                        </tr>
-                        <tr>
-                           <td>
-                            <button type="button" class="btn theme-btn" title="Addition" onclick="add()"><i class="ri-add-line"></i></button>
-                           <button type="button" class="btn theme-btn" title="Subtract" onclick="subtract()"><i class="ri-subtract-line"></i></button>
-                           <button type="button" class="btn theme-btn" title="Multiply" onclick="multiply()"><i class="ri-add-line"></i></button>
-                           <button type="button" class="btn theme-btn" title="Divide" onclick="divide()"><i class="ri-divide-line"></i></button>
+                            </div>
                         </td>
-                        <td><button type="submit" class="btn theme-btn btn-submit" onclick="calculate()">Calculate</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-        </section>
-        <section id="updateUser" class="table-wrapper updateuser">
-            <!-- Inject From the Js -->
-        </section>
-          <div id="confirmationModal" class="modal">
-            <div class="modal-content">
-              <p id="message" class="text-l"></p>
-              <button type="button" class="btn btn-red" onclick="confirmDelete()">Yes</button>
-              <button type="button" class="btn theme-btn" onclick="closeConfirmationModal()">No</button>
-            </div>
-          </div>
-        <script src="admin.js"></script>
+                        <td>
+                            <div class="input-container">
+                                <input type="date" class="input" id="joinDate">
+                                <label for="joinDate" class="placeholder">Date of Joining:</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="input-container">
+                                <input type="email" class="input" id="email">
+                                <label for="email" class="placeholder">Enter Email:</label>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot class="t-foot">
+                    <tr>
+                        <td colspan="2" id="changebtnType"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </form>
+    </section>
+    <section id="calculator" class="form-wrapper calculator">
+        <table>
+            <thead>
+                <tr>
+                    <th id="heading"><span class="text-l">Calculate</span></th>
+                    <th><button type="button" class="btn btn-close" title="Close" onclick="closeToggle('calculator')"><i class="ri-close-large-line"></i></button> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="number" class="input" id="number1" placeholder="Value"></td>
+                    <td id="symbole"></td>
+                    <td><input type="number" class="input" id="number2" placeholder="Value"></td>
+                    <td>=</td>
+                    <td ><input type="number" class="input" id="answer" title="Answer-box" value="0" readonly></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-secondary" title="Addition" onclick="add()"><i class="ri-add-line"></i></button></td>
+                    <td><button type="button" class="btn btn-secondary" title="Subtract" onclick="subtract()"><i class="ri-subtract-line"></i></button> </td>
+                    <td><button type="button" class="btn btn-secondary" title="Multiply" onclick="multiply()"><i class="ri-add-line"></i></button></td>
+                    <td><button type="button" class="btn btn-secondary" title="Divide" onclick="divide()"><i class="ri-divide-line"></i></button></td>
+                    <td><button type="submit" class="btn add-primary" onclick="calculate()">Calculate</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+          <span class="text-2xl material-symbols-outlined">data_alert</span>
+          <p id="message" class="text-l"></p>
+          <p>You will not be able to recover this user.</p>
+          <button type="button" class="btn btn-secondary" onclick="closeConfirmationModal()">No</button>
+          <button type="button" class="btn btn-danger" onclick="confirmDelete()">Yes, delete it!</button>
+        </div>
+      </div>
+     <script src="admin.js"></script>
 </body>
 </html>

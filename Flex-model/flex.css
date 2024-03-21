@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html , body{
+    width: 100%;
+    height: 100%;
+}
+.container{
+    background-color: gray;
+    display: flex;
+    justify-content:space-between;
+    align-items: flex-end;  /*? it work on the cross axis (vertically)*/
+    width: 100%;
+    height: 50%;
+}
+.box{
+    width: 10%;
+    height: 20%;
+    
+}
+.box:nth-child(even){
+    background-color: rgb(121, 255, 121);
+}
+.box:nth-child(odd){
+    background-color: rgb(255, 80, 80);
+}

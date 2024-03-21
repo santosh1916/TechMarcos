@@ -1,24 +1,4 @@
-:root{
-    --theme-light-color:rgb(14, 16, 15);
-    --theme-ext-light:rgba(14, 16, 15, 0.256);
-    --theme-dark-color:rgb(255, 252, 225);
-    --theme-ext-dark:rgba(255, 252, 225, 0.185);
-    --theme-color2: #ffc62b;
-    --btn-bg:rgb(255, 135, 9);
-    --btn-bg-light:rgba(255, 136, 9, 0.313);
-    --head-color:rgb(10, 228, 72);
-}
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-html , body{
-    width: 100%;
-    height: 100%;
-    background-color: var(--theme-dark-color);
-}
 .sidebar{
     background-color:var(--theme-light-color);
     width: 70px;
@@ -27,16 +7,6 @@ html , body{
     position: relative;
     padding-top: 40px;
     border-right: 1px solid var(--theme-ext-light);
-}
-.logo{
-    width: 90%;
-    height: auto;
-    border-radius: 10px;
-    overflow: hidden;
-    cursor: pointer;
-}
-.logo .image{
-    width: 100%;
 }
 .wrapper{
     display: inline-block;
@@ -53,6 +23,11 @@ html , body{
     font-weight: 100;
     color: var(--theme-dark-color);
 
+}
+.logo svg{
+    /* font-size: 400px */
+    /* background-color: red; */
+    scale: 4;
 }
 .link-bottom{
     position: absolute;
@@ -132,9 +107,7 @@ html , body{
 .head-wrapper .btn-red{
     display: none;
 }
-.showBtn{
-    display: inline-block !important;
-}
+
 
 .text-xl{
     font-size: 4rem;
@@ -178,7 +151,7 @@ html , body{
     border-radius:10px 10px 0 0;
     box-shadow: 0 2px 5px -4px var(--theme-light-color);
   }
-  thead th{
+  .user-data thead th{
       padding:15px;
   }
   .user-data tbody{
@@ -196,7 +169,7 @@ html , body{
   tbody::-webkit-scrollbar-thumb {
     background: transparent;
   }
-    tr{
+ .user-data tr{
     width: 100%;
     display: table;
   }
@@ -205,7 +178,7 @@ html , body{
     border-bottom: .1px solid var(--theme-ext-light);
     transition: all ease .3s;
   }
-  td, th {
+  .user-data td, th {
     padding:10px;
   }
   .user-data thead th:nth-child(1) , tbody td:nth-child(1){
@@ -250,13 +223,12 @@ input[type="checkbox"]{
 }
 .input-name{
     float: right;
-    margin-top: 3px;
 }   
 .checkbox-wrapper{
     position: relative;
     cursor: pointer;
 }
-.checkbox-wrapper i{
+.checkbox-wrapper span{
     position: absolute;
     font-size: 1.5rem;
     font-weight: 100;
@@ -276,42 +248,46 @@ input[type="checkbox"]:checked + .checkbox-wrapper .checked{
     color: var(--head-color);
 }
 
+input[type="checkbox"]:checked + .checkbox-wrapper .uncheck{
+    display: none;
+}
+
 /* Toggle container for all */
 .table-wrapper{
-    width: 20%;
-    min-width: 500px;
+    width: 40%;
+    /* min-width: 500px; */
     background-color: var(--theme-dark-color);
-    border: 1px solid var(--theme-ext-light);
+    border: 1px solid var(--theme-ext-light);  /* color sahi krna hai*/
     position: absolute;
     right: 5%;
     top: 11%;
     border-radius: 5px;
-    overflow: hidden;
-    transform: scaleY(0);
+    /* overflow: hidden; */
+    /* transform: scaleY(0); */
     transition: all ease-in-out .3s;
     transform-origin: top;
 }
+
 .text-l{
     font-size: 2rem;
     color: var(--theme-light-color);
 }
-.table-wrapper .user-data{
-    height: auto;
-}
+
 .table-wrapper tr{
     border: none;
-    margin-top: 15px;
+    /* background-color: #0ae448; */
 
 }
+
 .table-wrapper .input{
-    width: max-content;
-    border: none;
+    width: 100%;
+    /* border: none; */
     outline: none;
     background-color: transparent;
     border-bottom: 1px solid var(--theme-light-color);
     font-size: 1.2rem;
     padding: 7px 12px;
-    margin-left: 20px;
+    /* background-color: red; */
 
 }
 .table-wrapper .placeholder{
@@ -351,27 +327,6 @@ input[type="checkbox"]:checked + .checkbox-wrapper .checked{
 
 
 
-.calculator{
-    /*! remove this after test desplay none */
-    /* display: none;  */
-    width: 35%;
-    min-width: 700px;
-    right: 12%;
-    top: 11%;
-    padding: 0 20px;
-}
-.calculator input{
-    width: 150px;
-}
-.calculator tbody td{
-    width: calc(100% / 4);
-}
-.calculator .user-data tbody{
-    padding: 50px 0;
-}
-button[title="Multiply"] i{
-    /* transform: rotateX(20); */
-}
 
 
 
@@ -389,28 +344,3 @@ button[title="Multiply"] i{
 
 
 /* Modal styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--theme-ext-light);
-    backdrop-filter: blur(10px);
-}
-.modal-content {
-    background-color: var(--theme-dark-color);
-    backdrop-filter: blur(10px);
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid var(--theme-ext-dark);
-    width: 100%;
-    max-width: 500px;
-    text-align: center;
-    box-shadow: 0 0 6px 3px var(--theme-ext-light);
-}
-.modal-content button {
-    margin: 15px;
-}
