@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Instagram - Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="instagram.css">
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <aside class="sidebar p-4 d-flex flex-column justify-content-between">
+        <!-- side bar content -->
+        <!-- Brand start here! -->
+        <div class="brand-logo">
+          <a href="#" title="Home">
+            <img class="imageFix" src="brand-logo.png" width="4288" height="1212" alt="">
+          </a>
+        </div>
+        <!-- Brand end -->
+        <!-- Profile detials start here! -->
+        <div class="d-flex flex-column align-items-center profile-container">
+          <div class="dp-md">
+            <img class="imageFix rounded-circle" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" width="640" height="961" alt="Profile">
+          </div>
+          <h2 class="h5">Emma Waston</h2>
+          <p class="h6 text-muted">New York, NY</p>
+          <div>
+           <ul class="d-flex justify-content-around align-items-center ">
+            <li class="d-flex flex-column align-items-center">
+              <a href="#" class="text-dark font-weight-bold nav-link" title="Post" target="_top">Post</a>
+              <span class="font-weight-bold text-muted">16k</span>
+            </li>
+            <li class="d-flex flex-column align-items-center">
+              <a href="#" class="text-dark font-weight-bold nav-link" title="Followers" target="_top">Followers</a>
+              <span class="font-weight-bold text-muted">48m</span>
+
+            </li>
+            <li class="d-flex flex-column align-items-center">
+              <a href="#" class="text-dark font-weight-bold nav-link" title="Following" target="_top">Following</a>
+              <span class="font-weight-bold text-muted">34m</span>
+            </li>
+           </ul>
+          </div>
+        </div>
+        <!-- Profile detials end here! -->
+        <div>
+          <ul class="d-flex flex-column list-wrapper">
+            <li><a class="nav-link text-md active" aria-current="true" href="#"><i class="mx-2 ri-home-5-line active"></i> Feed</a></li>
+            <li><a class="nav-link text-md" href="#"><i class="mx-2 ri-compass-3-line"></i> Explore</a></li>
+            <li><a class="nav-link text-md" href="#"><i class="mx-2 ri-hashtag"></i> Trending Tags</a></li>
+            <li><a class="nav-link text-md" href="#"><i class="mx-2 ri-shield-check-line"></i> Top Post</a></li>
+            <li><a class="nav-link text-md" href="#"><i class="mx-2 ri-user-3-line"></i> People</a></li>
+            <li><a class="nav-link text-md" href="#"><i class="mx-2 ri-notification-2-line"></i> Notification</a></li>
+            <li><a class="nav-link text-md" href="#"><i class="mx-2 ri-send-plane-line"></i> Direct</a></li>
+            <li><a class="nav-link text-md" href="#"><i class="mx-2 ri-signal-tower-line"></i> Stats</a></li>
+            <li><a class="nav-link text-md" href="#"><i class="mx-2 ri-settings-5-line"></i> Settings</a></li>
+          </ul>
+        </div>
+      </aside>
+
+
+      <main>
+        <section class="wrapper d-flex align-items-center justify-content-between flex-wrap p-4">
+          <!-- top section full width -->
+          <!-- searchbar and create post btn -->
+          <div class="col-md-4 p-0">
+              <div class="input-group border rounded-lg py-1">
+                  <span class="input-group-prepend">
+                      <span class="input-group-text bg-transparent border-0"><i class="ri-search-line"></i></span>
+                  </span>
+                  <input class="form-control py-2 border-0" type="search" placeholder="Search" id="example-search-input" title="Search">
+                  <span class="input-group-append">
+                  <button class="btn border-0" type="button" title="Speak">
+                    <i class="ri-mic-line"></i>
+                  </button>
+                </span>
+              </div>
+          </div>
+         <div class="d-flex align-items-center">
+          <ul class="d-flex list-wrapper mb-0 align-items-center">
+            <li><button class="btn theme-btn rounded-lg" type="button" title="Create New Post"><i class="ri-add-large-line"></i> <span class="font-weight-bold">Create New Post</span></button></li>
+            <li><a href="#" class="nav-link text-md" title="Inbox"><i class="ri-mail-line"></i></a></li>
+            <li><a href="#" class="nav-link text-md" title="Likes"><i class="ri-heart-line"></i></a></li>
+           </ul>
+           <div class="dp-sm">
+            <img class="imageFix rounded-circle" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=1978&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+           </div>
+           
+         </div>
+        </section>
+        <section class="wrapper wrapper-bottom">
+          <!-- bottom section full width -->
+          <div class="left">
+            <section>
+              <!-- story crousal -->
+              <div class="d-flex justify-content-between p-5">
+                <h2>Featured Stories</h2>
+              <button class="btn theme-btn" type="button">Popular Stories</button>
+              </div>
+            </section>
+            <section>
+              <!-- latest feed -->
+            </section>
+          </div>
+          <div class="right">
+            <!-- 6X4 img -->
+            <!-- heading -->
+            <!-- description -->
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  </body>
+</html>
