@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Form</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+        <header>
+            <nav class="navbar border-bottom py-4">
+                <ul class="nav w-100 justify-content-center btn-wrapper">
+                    <li class="nav-item">
+                        <button type="button" class="nav-btn" title="Contact" id="contact"><span class="count">1</span> Contact <span>-</span></button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="nav-btn" title="Work History" id="workhistory" disabled><span class="count">2</span> Work History <span>-</span></button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="nav-btn" title="Education" id="education" disabled><span class="count">3</span> Education <span>-</span></button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="nav-btn" title="Skills" id="skills" disabled><span class="count">4</span> Skills <span>-</span></button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="nav-btn" title="Objective or Summary" id="objective" disabled><span class="count">5</span> Objective/Summary <span>-</span></button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="nav-btn" title="Acknowledgements" id="acknowledgements" disabled><span class="count">6</span> Acknowledgements <span>-</span></button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="nav-btn" title="Refrences" id="refrence" disabled><span class="count">7</span> Refrences</button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="d-flex justify-content-around p-0">
+                <!-- From start here -->
+                <section class="wrapper">
+                    <h1>Your Personal Information?</h1>
+                    <p>We Suggest including an email and phone number.</p>
+                    <form action="#" name="register" class="form-container"  id="contactForm">
+                            <div class="input-wrapper half">
+                                <input type="text" class="form-input" name="firstname" placeholder="First Name" id="firstname">
+                                <label for="firstname" class="form-label">First Name*</label>
+                                <span class="form-alert">First Name is Required!</span>
+                            </div>
+                            <div class="input-wrapper half">
+                                <input type="text" class="form-input" name="firstname" placeholder="Last Name" id="lastname">
+                                <label for="lastname" class="form-label">Last Name*</label>
+                                <span class="form-alert">First Name is Required!</span>
+                            </div>
+                            <div class="input-wrapper half">
+                                <input type="text" class="form-input" name="address" placeholder="Address" id="address">
+                                <label for="address" class="form-label">Street Address*</label>
+                                <span class="form-alert">Street Address is Required!</span>
+                            </div>
+                            <div class="input-wrapper half">
+                                <input type="text" class="form-input" name="city" placeholder="City" id="city">
+                                <label for="city" class="form-label">City*</label>
+                                <span class="form-alert">First Name is Required!</span>
+                            </div>
+                            <div class="input-wrapper forth">
+                                <input type="text" class="form-input" name="state" placeholder="State" id="state">
+                                <label for="state" class="form-label">State/Province*</label>
+                                <span class="form-alert">State is Required!</span>
+                            </div>
+                            <div class="input-wrapper forth">
+                                <input type="text" class="form-input" name="zipcode" placeholder="Zip Code" id="zipcode">
+                                <label for="zipcode" class="form-label">Zip Code*</label>
+                                <span class="form-alert">Zip Code is Required!</span>
+                            </div>
+                            <div class="input-wrapper forth">
+                                <label for="type" class="form-label">Select*</label>
+                                <select class="selection-input" name="type" id="type">
+                                    <option>Trainee</option>
+                                    <option>Employ</option>
+                                </select>
+                            </div>
+                            <div class="input-wrapper forth">
+                                <input type="number" class="form-input" name="phone" max="10" placeholder="Phone" id="phone"> 
+                                <label for="phone" class="form-label">Phone*</label>
+                            </div>
+                            <div class="input-wrapper half">
+                                <input type="email" class="form-input" name="email" placeholder="Email" id="emailid">
+                                <label for="emailid" class="form-label">Email*</label>
+                            </div>
+                            <div class="btn-wrapper full    ">
+                                <button class="btn border-btn" type="button">Back</button>
+                                <button class="btn theme-btn" type="button">Next: Work History</button>
+                            </div>
+                    </form>
+
+
+                    <form action="#" name="register" class="form-container" id="workhistoryFormControl">
+                        <div class="input-wrapper half">
+                            <input type="text" class="form-input" name="perfession" placeholder="perfession" id="perfession">
+                            <label for="perfession" class="form-label">Perfession</label>
+                            <span class="form-alert">Perfession is Required!</span>
+                        </div>
+                        <div class="input-wrapper half">
+                            <input type="text" class="form-input" name="summary" placeholder="About Your Perfession" id="summary">
+                            <label for="summary" class="form-label">About Your Perfession*</label>
+                            <span class="form-alert">Required!</span>
+                        </div>
+                        <div class="btn-wrapper full">
+                            <button class="btn border-btn" type="button">Back</button>
+                            <button class="btn theme-btn" type="button">Next: Work History</button>
+                        </div>
+                </form>
+
+                </section>
+                <section class="wrapper">
+                    <div>
+                        <h1 id="fullname" class="main-heading h3">User Full Name</h1>
+                        <p id="addresline">Address</p>
+                        <p id="phonenumber">Phone:Number</p>
+                    </div>
+                    <div>
+                        <h2 class="secondary-heading h4">Professional Summary</h2>
+                        <p id="summary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod rerum dolore odit, labore enim repudiandae perferendis nam adipisci iusto dignissimos deserunt debitis eos eaque tempore quasi officia culpa? Aut, pariatur?</p>
+                    </div>
+                    <div>
+                        <h2 class="secondary-heading h4">Experience</h2>
+                        <div>
+                            <span id="post">Post of Employ</span>
+                            <span id="joinDate">Starting date</span>
+                            <span id="leaveDate">Ending date</span>
+                        </div>
+                        <ul>
+                            <li>1 Lorem ipsum dolor sit.</li>
+                            <li>2 Lorem ipsum dolor sit.</li>
+                            <li>3 Lorem ipsum dolor sit.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="secondary-heading h4">Education</h2>
+                        <div>
+                            <span>clg Name</span>
+                            <p>
+                                <span>Joining date</span>
+                                <span>PassingOut date</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="secondary-heading h4">Skils</h2>
+                        <ul class="d-flex flex-wrap">
+                            <li class="list">Lorem, ipsum dolor.</li>
+                            <li class="list">Lorem, ipsum dolor.</li>
+                            <li class="list">Lorem, ipsum dolor.</li>
+                            <li class="list">Lorem, ipsum dolor.</li>
+                            <li class="list">Lorem, ipsum dolor.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="secondary-heading h4">Refrence</h2>
+                        <p>Name Of company</p>
+                        <p>Address of company</p>
+                    </div>
+                </section>
+        </main>
+    </div>
+
+
+
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

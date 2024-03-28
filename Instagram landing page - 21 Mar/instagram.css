@@ -21,12 +21,9 @@ html , body{
 }
 .sidebar{
     background-color: var(--light-gray);
-    flex-basis: 20%;
+    height: auto;
 }
-main{
-    /* background-color: blueviolet; */
-    flex-basis: 80%;
-}
+
 .brand-logo{
     width: 150px;
 }
@@ -43,8 +40,8 @@ main{
     flex: 0 0 70%;
 }
 .right{
-    background-color: rgb(131, 154, 146);
     flex: 0 0 30%;
+    /* display: none; */
 }
 .dp-md{
     width: 100px;
@@ -88,8 +85,57 @@ main{
         color: rgb(21, 255, 0) !important;
     }
 }
+.text-l{
+    font-size: 1.7rem;
+    font-weight: 100;
+    &&:hover{
+        color: var(--theme-color);
+    }
+
+}
 .nav-link i{
     font-size: 1.6rem;
+}
+
+/* Carausal style */
+.cards-wrapper {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+
+  }
+  .card {
+    box-shadow: 2px 6px 10px 0px rgba(22, 22, 26, 0.18);
+    border: none;
+    overflow: hidden;
+    flex: 0 0 calc(100% / 4 - 1rem);
+  }
+  .image-container{
+    width: 100%;
+    max-height: 270px;
+  }
+
+.card-wrapper{
+    display: flex;
+    justify-content: flex-start;
+    gap: 4rem;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+}
+.third{
+    flex: 0 0 calc(100% / 3 - 3rem);
+
+}
+.image-wrapper{
+    max-height: 350px;
+    border-radius: 7px;
+    overflow: hidden;
+}
+.banner-md{
+    width: 70%;
+    margin: 0 auto;
+    max-height: 400px;
+    background-color: red;
 }
 @media (max-width:600px) {
     aside{
@@ -104,4 +150,11 @@ main{
         flex-direction: column;
         width: 100%;
     }
+    .card{
+        flex: 0 0 calc(100% / 3 - 1rem);
+    }
+    .image-wrapper{
+        flex: 0 0 calc(100% / 1 - 1rem);
+    }
+
 }
