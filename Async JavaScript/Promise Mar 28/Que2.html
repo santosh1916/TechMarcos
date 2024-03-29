@@ -1,100 +1,167 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <title>Random User</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
   </head>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html,
     body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        
-        #user-info {
-            text-align: center;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        #profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-        
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        
-        button:hover {
-            background-color: #0056b3;
-        }
+      width: 100%;
+      height: 100%;
+    }
+    .wrapper {
+      width: 100%;
+      height: 100%;
+      background-color: rgb(136, 136, 136);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .card {
+      min-width: 400px;
+      background-color: rgb(61, 61, 61);
+      border-radius: 10px;
+      box-shadow: 0 0 15px -5px #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+      gap: 20px;
+      color: #ffffff;
+    }
+    .img-wrapper {
+      width: 100px;
+      height: 100px;
+      overflow: hidden;
+      border-radius: 50%;
+    }
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .text-md {
+      font-size: 1.3rem;
+    }
   </style>
   <body>
-      <div id="user-info">
-        <img id="profile-pic" src="" alt="Profile Picture">
-        <p id="user-name"></p>
-        <p id="user-gender"></p>
-    </div>
-    <button type="button" id="fetch-random-user">Fetch Random User</button>
+      <main class="wrapper">
+        <div id="alertMsg"></div>
+      <div class="card" id="user-info">
+        <div class="img-wrapper">
+          <img
+            class="profile-img"
+            id="profile-pic"
+            src=""
+            alt="Profile Picture"
+          />
+        </div>
+        <h1 id="user-name"></h1>
+        <p class="text-md" id="user-gender"></p>
+      </div>
+     
+      <div id="btn-wrapper">
+        
+      </div>
+      <button type="button" class="btn btn-primary" id="fetch-random-user">
+        Random User
+      </button>
+    </main>
 
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
     <script>
-       async function fetchRandomUser() {
-            try {
-                const response = await fetch(`https://randomuser.me/api/`);
-                if (!response.ok) {
-                    throw new Error('Failed to fetch user data');
-                }
-                const userData = await response.json();
-                return userData.results[0];
-            } catch (error) {
-                console.error('Error fetching user data:', error);
-                return null;
-            }
+     async function fetchRandomUser() {
+    try {
+        const response = await fetch(`https://randomuser.me/api/`);
+        if (!response.ok) {
+            throw new Error("Failed to fetch user data");
         }
+        const userData = await response.json();
+        return userData.results[0];
+    } catch (error) {
+        console.error("Error fetching user data:", error);
+        return null;
+    }
+}
 
-        async function displayRandomUser() {
-            try {
-                const user = await fetchRandomUser();
-                if (user) {
-                    const profilePic = document.getElementById('profile-pic');
-                    const userName = document.getElementById('user-name');
-                    const userGender = document.getElementById('user-gender');
+async function displayRandomUser() {
+    try {
+        const user = await fetchRandomUser();
+        if (user) {
+            const profilePic = document.getElementById("profile-pic");
+            const userName = document.getElementById("user-name");
+            const userGender = document.getElementById("user-gender");
 
-                    profilePic.src = user.picture.large;
-                    userName.textContent = `Name: ${user.name.first} ${user.name.last}`;
-                    userGender.textContent = `Gender: ${user.gender}`;
-                } else {
-                    console.log('No user data available.');
-                }
-            } catch (error) {
-                console.error('Error displaying user data:', error);
-            }
+            profilePic.src = user.picture.large;
+            userName.textContent = `Name: ${user.name.first} ${user.name.last}`;
+            userGender.textContent = `Gender: ${user.gender}`;
+        } else {
+            document.getElementById("alertMsg").innerHTML = `
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Fetch Error!</strong> No user data available.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            `
         }
+    } catch (error) {
+        document.getElementById("alertMsg").innerHTML = `
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Fetch Error!</strong> Error displaying user data: ${error}.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            `
+    } finally {
+        // Remove the spinner after displaying the user data or encountering an error
+        document.getElementById("btn-wrapper").innerHTML = "";
+    }
+}
 
-        // Button event listener
-        document.getElementById('fetch-random-user').addEventListener('click', displayRandomUser);
-
-        // Display a random user on page load
+// Button event listener
+document.getElementById("fetch-random-user").addEventListener("click", () => {
+    // Show the spinner
+    document.getElementById("btn-wrapper").innerHTML = `<div class="spinner-border ml-3" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>`;
+    // Call displayRandomUser after a delay of 1 second (1000 milliseconds)
+    setTimeout(() => {
         displayRandomUser();
+    }, 1000);
+});
 
- 
-     </script>
+// Display a random user on page load
+window.addEventListener('load', displayRandomUser);
+
+    </script>
   </body>
 </html>

@@ -21,3 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
        fullNamePreview.textContent = fullName;
    }
 });
+
+let a = document.querySelector('input')
+console.log(a)

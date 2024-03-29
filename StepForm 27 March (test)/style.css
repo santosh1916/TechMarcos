@@ -124,10 +124,9 @@ html , body{
 }
 
 /* CSS for disabled navigation buttons */
-.nav-btn[disabled] {
+.nav-btn:disabled {
     opacity: 0.5; /* Reduce opacity to visually indicate the button is disabled */
     cursor: not-allowed; /* Change cursor to indicate the button is not clickable */
-    pointer-events: none; /* Disable pointer events to prevent interactions */
   }
   
 .selection-input{
@@ -168,4 +167,10 @@ html , body{
 }
 .list{
     flex: 0 0 calc(100% / 2);
+}
+.theme-btn:disabled{
+    cursor:not-allowed;
+}
+input::spelling-error{
+    
 }
