@@ -41,33 +41,46 @@
         </div>
     </section>
     <script>
+
         const fileUrls = [
-            'https://testfile.org/files-5GB-zip'
-        ];
+    'https://file-examples.com/wp-content/storage/2017/02/file-sample_1MB.doc',
+    'https://file-examples.com/wp-content/storage/2017/02/file-sample_500kB.doc',
+    'https://file-examples.com/wp-content/storage/2017/02/file-sample_1MB.docx'
+];
 
-        async function downloadFile(url) {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`Failed to download ${url}. Status: ${response.status}`);
-            }
-            return await response.blob();
-        }
+function startDownload(urls) {
+    if (!window.fetch) {
+        return Promise.reject(new Error('Fetch API is not supported in this environment'));
+    }
 
-
-        async function downloadFiles(urls) {
-            try {
-                await Promise.all(urls.map(url => downloadFile(url)));
-                alert('All files downloaded successfully.');
-
-            } catch (error) {
-                console.error('Failed to download files:', error);
-            }
-        }
-
-        document.getElementById('downloadBtn').addEventListener('click', () => {
-            console.log('Downloading files...');
-            downloadFiles(fileUrls);
+    const promises = urls.map(url => {
+        return new Promise((resolve, reject) => {
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Failed to Fetch Url");
+                    }
+                    return response.blob();
+                })
+                .then(blob => resolve(blob))
+                .catch(error => reject(error));
         });
+    });
+
+    return Promise.all(promises);
+}
+
+document.getElementById('downloadBtn').addEventListener('click', () => {
+    alert("Downloading Start")
+    startDownload(fileUrls)
+        .then(blobs => {
+            console.log('All downloads completed:', blobs);
+        })
+        .catch(error => {
+            console.error('An error occurred during download:', error);
+        });
+});
+
     </script>
 </body>
 </html>
