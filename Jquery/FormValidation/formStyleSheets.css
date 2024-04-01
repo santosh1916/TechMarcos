@@ -84,11 +84,7 @@ html , body{
          }
       }
    }
-/* alert if not valid */
 
-/* label[for='zipcode'] + .form-alert{
-    display: block;
-} */
 .show-alert ~ .form-alert{
     display: block;
 }
