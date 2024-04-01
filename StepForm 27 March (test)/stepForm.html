@@ -42,7 +42,7 @@
                 <section class="wrapper">
                     <h1>Your Personal Information?</h1>
                     <p>We Suggest including an email and phone number.</p>
-                    <form action="#" name="register" class="form-container"  id="contactForm">
+                    <form action="#" name="register" class="form-container" onsubmit="event.preventDefault(); return validateForm(this)"  id="contactForm">
                             <div class="input-wrapper half">
                                 <input type="text" class="form-input" name="firstname" placeholder="First Name" id="firstname">
                                 <label for="firstname" class="form-label">First Name*</label>
@@ -90,7 +90,7 @@
                             </div>
                             <div class="btn-wrapper full    ">
                                 <button class="btn border-btn" type="button">Back</button>
-                                <button class="btn theme-btn" type="button" disabled>Next: Work History</button>
+                                <button class="btn theme-btn" type="submit">Next: Work History</button>
                             </div>
                     </form>
 
@@ -108,7 +108,7 @@
                         </div>
                         <div class="btn-wrapper full">
                             <button class="btn border-btn" type="button">Back</button>
-                            <button class="btn theme-btn" type="button">Next: Work History</button>
+                            <button class="btn theme-btn" type="submit">Next: Work History</button>
                         </div>
                 </form>
 

@@ -85,8 +85,15 @@ html , body{
       }
    }
 /* alert if not valid */
+
+/* label[for='zipcode'] + .form-alert{
+    display: block;
+} */
+.d-block ~ .form-alert{
+    display: block;
+}
 .form-alert {
-    /* display: none; */
+    display: none;
     position: absolute;
     bottom: -40%;
     color: var(--color-danger);

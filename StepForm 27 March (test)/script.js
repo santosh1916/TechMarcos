@@ -22,5 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
    }
 });
 
-let a = document.querySelector('input')
-console.log(a)
+function validateForm(form){
+let fname = form.querySelector("#firstname")
+console.log(fname)
+}

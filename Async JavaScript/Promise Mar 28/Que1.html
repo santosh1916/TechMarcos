@@ -1,17 +1,73 @@
+ <!-- Develop a function to download multiple files concurrently using Promise.all(). Handle successful downloads, download failures, and progress updates for each file. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Concurrent File Downloader</title>
-    <link rel="stylesheet" href="Que1.css">
+    <title>Task 1 File Downloade </title>
 </head>
+<style>
+        body {
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        text-align: center;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    #progress {
+        margin-top: 20px;
+        text-align: left;
+    }
+
+    .progress-item {
+        margin-bottom: 10px;
+    }
+
+</style>
 <body>
     <section class="container">
         <h1>Concurrent File Downloader</h1>
         <button type="button" id="downloadBtn">Download Files</button>
-        <div id="progress"></div>
+        <div id="progress">
+        </div>
     </section>
-    <script src="Que1.js"></script>
+    <script>
+        const fileUrls = [
+            'https://testfile.org/files-5GB-zip'
+        ];
+
+        async function downloadFile(url) {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Failed to download ${url}. Status: ${response.status}`);
+            }
+            return await response.blob();
+        }
+
+
+        async function downloadFiles(urls) {
+            try {
+                await Promise.all(urls.map(url => downloadFile(url)));
+                alert('All files downloaded successfully.');
+
+            } catch (error) {
+                console.error('Failed to download files:', error);
+            }
+        }
+
+        document.getElementById('downloadBtn').addEventListener('click', () => {
+            console.log('Downloading files...');
+            downloadFiles(fileUrls);
+        });
+    </script>
 </body>
 </html>
