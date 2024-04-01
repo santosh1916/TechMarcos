@@ -24,6 +24,9 @@
         </div>
       </nav>
       <!-- navbar Ending -->
+      <div class="position-absolute" id="message-box">
+        
+      </div>
 
       <!-- userForm start -->
       <section class="container mt-5">
@@ -38,7 +41,7 @@
                 <div class="input-wrapper half">
                     <input type="text" class="form-input" name="firstname" placeholder="Last Name" id="lastname">
                     <label for="lastname" class="form-label">Last Name*</label>
-                    <span class="form-alert">First Name is Required!</span>
+                    <span class="form-alert">Last Name is Required!</span>
                 </div>
                 <div class="input-wrapper half">
                     <input type="text" class="form-input" name="address" placeholder="Address" id="address">
@@ -48,7 +51,7 @@
                 <div class="input-wrapper half">
                     <input type="text" class="form-input" name="city" placeholder="City" id="city">
                     <label for="city" class="form-label">City*</label>
-                    <span class="form-alert">First Name is Required!</span>
+                    <span class="form-alert">City is Required!</span>
                 </div>
                 <div class="input-wrapper half">
                     <input type="text" class="form-input" name="state" placeholder="State" id="state">
@@ -61,12 +64,15 @@
                     <span class="form-alert">Zip Code is Required!</span>
                 </div>
                 <div class="input-wrapper half">
-                    <input type="number" class="form-input" name="phone" max="10" placeholder="Phone" id="phone"> 
+                    <input type="tel"  maxlength="10" class="form-input" name="phone"  placeholder="Phone" id="phone"> 
                     <label for="phone" class="form-label">Phone*</label>
+                    <span class="form-alert">Phone is Required!</span>
                 </div>
                 <div class="input-wrapper half">
-                    <input type="email" class="form-input" name="email" placeholder="Email" id="emailid">
+                    <input type="text" class="form-input" name="email" placeholder="Email" id="emailid">
                     <label for="emailid" class="form-label">Email*</label>
+                    <span class="form-alert">Email is Required!</span>
+
                 </div>
                 <div class="d-flex justify-content-center w-100">
                     <button class="btn theme-btn half" type="submit" title="Submit">Submit</button>

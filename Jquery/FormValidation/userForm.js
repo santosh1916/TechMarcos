@@ -1,17 +1,3 @@
-// let alermsg = document.querySelector("label[for='zipcode'] + .form-alert");
-// alermsg.style.display = 'block'
-
-// function validateForm(form){
-//     let fname = form.getElementById("firstname");
-//     console.log(fname)
-// }
-// validateForm()
-
-
-// let formInputFields = document.querySelectorAll("forms['myForm'] input")
-// console.log(formInputFields);
-// console.log("Hello")
-
 function validateForm(form){
     let fname = $("#firstname");
     let lname = $("#lastname");
@@ -22,17 +8,33 @@ function validateForm(form){
     let phone = $("#phone");
     let email = $("#emailid");
 
-    if(!fname.val()){
-        console.log("fname require")
-        fname.addClass("d-block")
-    }
-
-    if(!fname.val() || !lname.val() || !address.val() || !city.val() || !state.val() || !zipcode.val() || !phone.val() || !email.val()){
-        console.log("All field are require")
-    }
-    else{
-       console.log('Validate from code here')
+    // Code for Show Wrarning if any field not fill
+    [fname,lname,address,city,state,zipcode,phone,email].forEach(inputFilled=>{
+        if(!inputFilled.val().trim()){
+            inputFilled.addClass('show-alert')
+        } else{
+            inputFilled.removeClass('show-alert')
+        }
+    })
+    if(email.val().trim()){
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!email.val().trim() === '' || !emailPattern.test(email.val())) {
+            showErrorMessage("Email Should be contain Proper email id" , 'danger')
+    
+        }
+        else{
+            showErrorMessage("Email Validate Successfully" , 'success')
+        }
     }
 }
 
-document.getElementById("#firstname").classList.add
+
+function showErrorMessage(message , type){
+    let MessageBox = $("#message-box")
+    MessageBox.html(`<div class="alert alert-${type} alert-dismissible fade show" role="alert">
+    <strong>MESSEGE:</strong> ${message}.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>`)
+}

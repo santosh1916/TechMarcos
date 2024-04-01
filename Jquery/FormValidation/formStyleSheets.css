@@ -89,7 +89,7 @@ html , body{
 /* label[for='zipcode'] + .form-alert{
     display: block;
 } */
-.d-block ~ .form-alert{
+.show-alert ~ .form-alert{
     display: block;
 }
 .form-alert {
