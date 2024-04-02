@@ -16,7 +16,6 @@ $(document).ready(function() {
                 minlength:6
             },
             confirmPassword:{
-                required:true,
                 equalTo:"#password"
             }
         },
@@ -36,7 +35,6 @@ $(document).ready(function() {
                 minlength:"Please Enter atleast 6 digits"
             },
             confirmPassword:{
-                required:"Confirm Password is required",
                 equalTo:"Not matched your password"
             }
         },
@@ -68,5 +66,5 @@ $(document).ready(function() {
 });
 
 $(document).ready(()=>{
-    $("#phone").mask("+91 99999 99999" , {placeholder:"+91 _____ _____"})
+    $("#phone").mask("+99 99999 99999" , {placeholder:"+91 _____ _____"})
 })
