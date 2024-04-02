@@ -69,5 +69,4 @@ $(document).ready(function() {
 
 $(document).ready(()=>{
     $("#phone").mask("+91 99999 99999" , {placeholder:"+91 _____ _____"})
-    $("#phone").placeholder().mask(("hs"))
 })
