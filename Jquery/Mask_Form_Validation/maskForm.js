@@ -7,6 +7,10 @@ $(document).ready(function() {
                 required:true,
                 email:true
             },
+            phone:{
+                required:true,
+                minlength:15
+            },
             password:{
                 required:true,
                 minlength:6
@@ -21,6 +25,11 @@ $(document).ready(function() {
             email:{
                 required:"Email Address is required*",
                 email:"Please Enter valid email address!"
+            },
+            phone:{
+                required:"Phone No is required*",
+                digits:"Please Enter only digits",
+                minlength:"Number should be 10 digits"
             },
             password:{
                 required:"Password is required",
@@ -57,3 +66,8 @@ $(document).ready(function() {
         console.log("hello");
     });
 });
+
+$(document).ready(()=>{
+    $("#phone").mask("+91 99999 99999" , {placeholder:"+91 _____ _____"})
+    $("#phone").placeholder().mask(("hs"))
+})
