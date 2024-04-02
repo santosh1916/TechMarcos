@@ -10,13 +10,8 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
-html , body{
-    width: 100%;
-    height: 100%;
-}
-.main{
-    width: 100%;
-    height: 100%;
+body{
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,7 +27,6 @@ html , body{
 }
 .wrapper{
     width: 50%;
-    min-height: 620px;
     padding: 40px 35px;
 }
 .bg-light{
@@ -160,4 +154,21 @@ html , body{
 }
 .required{
     color: red;
+}
+
+@media (max-width:600px) {
+    .container{
+        flex-direction: column;
+        margin: 20px;
+    }
+    .wrapper{
+        width: 100%;
+        padding: 40px 35px;
+    }
+    .flash-wrapper{
+        position: fixed;
+        top: 0;
+        right: -10%;
+        transform: scale(.7);
+    }
 }
