@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Form Validation Using Mask</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <link rel="stylesheet" href="formStyle.css">
+  </head>
+  <body>
+    <main class="main">
+      <div id="flash-message">
+        <!-- Flash message inject here! when it accure -->
+      </div>
+      <div class="container">
+        <section class="wrapper bg-light">
+          <h2 class="heading-md">Sign Up</h2>
+          <p class="sub-heading">Please signup to continue</p>
+          <!-- Form Start Here -->
+          <form action="#" id="myForm" name="myform" class="form-container">
+            <div class="form-wrapper">
+              <label for="fullname" class="input-lable">Full Name<span class="required">*</span></label>
+              <input type="text" id="fullname" name="fullname" placeholder="Enter your Full Name" class="form-input">
+            </div>
+            <div class="form-wrapper">
+              <label for="email" class="input-lable">Email Address<span class="required">*</span></label>
+              <input type="text" id="email" name="email" placeholder="Enter your Email" class="form-input">
+            </div>
+            <div class="form-wrapper">
+              <label for="password" class="input-lable">Password<span class="required">*</span></label>
+              <input type="text" id="password" name="password" placeholder="Create your password" class="form-input">
+            </div>
+            <div class="form-wrapper">
+              <label for="confirmPassword" class="input-lable">Confirm Password<span class="required">*</span></label>
+              <input type="text" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" class="form-input">
+            </div>
+            <button type="submit" title="Sign Up" class="btn full-btn">Sign Up</button>
+          </form>
+        </section>
+        <section class="wrapper bg-theme flex-box">
+          <div class="boll">
+          </div>
+          <h2>Soccer Ball</h2>
+          <p>Already have an account?</p>
+          <a href="#" class="btn rounded-btn" title="Sign In">Sign In</a>
+        </section>
+      </div>
+    </main>
+
+    <!-- Jquery cdns -->
+    <script src="../jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
+    <script src="maskForm.js"></script>
+  </body>
+</html>
