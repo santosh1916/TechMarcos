@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+  <!-- Main Wrapper -->
+  <div class="main-container">
+
+      <aside>
+        <div class="siderbar second gap-5">
+          <!-- Brand start here! -->
+        <div class="brand-wrapper"> 
+          <a href="#" title="Home">
+            <img class="brand-logo" src="brand-logo.png" width="4288" height="1212" alt="">
+          </a>
+        </div> <!--! Brand end -->
+        
+        <!-- Profile detials start here! -->
+        <div class="wrapper column elem-center gap-2"> 
+
+            <div class="column elem-center gap-2">
+                <div class="profile-md">
+                    <img class="imageFix rounded-full" src="https://images.squarespace-cdn.com/content/v1/53bc4798e4b018d9b4809d82/1503946387169-76O5QSM4LZ5WI0NUVDML/Benjamin-Hardman-Portrait.jpg?format=1000w" width="640" height="961" alt="Profile">
+                </div>
+                <h2 class="h5">Emma Waston</h2>
+                <p class="text-secondary">New York, NY</p>
+            </div>
+
+            <ul class="list-group  row gap-5">
+            <li class="column elem-center">
+              <a href="#" class="d-block btn" title="Post" target="_top">Post</a>
+              <span class="text-secondary">16k</span>
+            </li>
+            <li class="column elem-center">
+              <a href="#" class="d-block btn" title="Followers" target="_top">Followers</a>
+              <span class="text-secondary">48m</span>
+            </li>
+            <li class="column">
+              <a href="#" class="d-block btn" title="Following" target="_top">Following</a>
+              <span class="text-secondary">34m</span>
+            </li>
+            </ul>
+
+          </div> <!--! Profile detials end here! -->
+        
+          <!-- side nav links start Here! -->
+        <ul class="list-group column gap-4">
+          <li><a class="link-btn active" href="#" title="Feed"><i class="mx-2 ri-home-5-line active"></i> Feed</a></li>
+          <li><a class="link-btn" href="#" title="Explore"><i class="mx-2 ri-compass-3-line"></i> Explore</a></li>
+          <li><a class="link-btn" href="#" title="Trending Tags"><i class="mx-2 ri-hashtag"></i> Trending Tags</a></li>
+          <li><a class="link-btn" href="#" title="Top Post"><i class="mx-2 ri-shield-check-line"></i> Top Post</a></li>
+          <li><a class="link-btn" href="#" title="People"><i class="mx-2 ri-user-3-line"></i> People</a></li>
+          <li><a class="link-btn" href="#" title="Notification"><i class="mx-2 ri-notification-2-line"></i> Notification</a></li>
+          <li><a class="link-btn" href="#" title="Direct"><i class="mx-2 ri-send-plane-line"></i> Direct</a></li>
+          <li><a class="link-btn" href="#" title="Stats"><i class="mx-2 ri-signal-tower-line"></i> Stats</a></li>
+          <li><a class="link-btn" href="#" title="Settings"><i class="mx-2 ri-settings-5-line"></i> Settings</a></li>
+        </ul> <!--! side nav links end --> 
+        </div>
+      </aside>
+
+      <main class="container eight">
+
+        <!-- Header Start Here! -->
+        <header class="row header">
+          <!-- Search box here -->
+
+          <div class="input-wrapper">
+            <label for="search" class="search-icon"><i class="ri-search-line"></i></label>
+            <input type="search" class="search-box" title="Search" id="search" placeholder="Search">
+            <label for="mic" class="mic-icon"><i class="ri-mic-line"></i></label>
+          </div> <!--! Search box end -->
+
+          <!-- Header Nav links start -->
+          <div class="row">
+            <ul class="list-group row gap-2">
+              <li><button class="theme-btn" type="button" title="Create New Post"><i class="ri-add-large-line"></i> <span class="btn-text">Create New Post</span> </button></li>
+              <li><a href="#" class="link-btn font-thinn" title="Inbox"><i class="ri-mail-line"></i></a></li>
+              <li><a href="#" class="link-btn font-thinn" title="Likes"><i class="ri-heart-line"></i></a></li>
+            </ul> 
+
+            <!-- Profile with dorpdown Start Here! -->
+            <div class="row relative">
+              <label for="page" class="label-wrapper">
+                <div class="image-container">
+                  <img class="imageFix rounded-full" src="https://images.squarespace-cdn.com/content/v1/53bc4798e4b018d9b4809d82/1503946387169-76O5QSM4LZ5WI0NUVDML/Benjamin-Hardman-Portrait.jpg?format=1000w" width="640" height="961" alt="Profile">
+                </div>
+              </label>
+              <select name="page" id="page" class="select-box">
+                <option value="choose" selected disabled><i class="ri-arrow-down-s-fill"></i></option>
+                <option value="page1">Page 1</option>
+                <option value="page2">Page 2</option>
+                <option value="page3">Page 3</option>
+              </select>
+            </div> <!--! Profile with dorpdown end -->
+
+          </div> <!--! Header Nav links end -->
+        </header>
+        <div class="row top-right">
+          <!-- center div -->
+          <section class="center">
+            <div class="story-wrapper">
+              <div class="row story-header">
+                <h2>Feature Stories</h2>
+                <button type="button" class="btn-secondary">Popular Stories</button>
+              </div>
+              <div class="story-container">
+                <div class="card-container">
+                  <div class="card">
+                      <div class="image-wrapper">
+                          <img class="imageFix" src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGJlYWNofGVufDB8fDB8fHww" width="500" height="890"  alt="Sea beach">
+                      </div>
+                  </div>
+                  <div class="card">
+                      <div class="image-wrapper">
+                          <img class="imageFix" src="https://images.unsplash.com/photo-1555019173-edd4b0be4d2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fHdhdGVyZmFsbHxlbnwwfHwwfHx8MA%3D%3D" width="500" height="625" alt="Waterfall">
+                      </div>
+                  </div>
+                  <div class="card">
+                      <div class="image-wrapper">
+                          <img class="imageFix" src="https://images.unsplash.com/photo-1507608443039-bfde4fbcd142?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aG90JTIwYWlyJTIwYmFsbG9vbnxlbnwwfHwwfHx8MA%3D%3D" width="500" height="750" alt="Hot air ballon">
+                      </div>
+                  </div>
+                  <div class="card">
+                      <div class="image-wrapper">
+                          <img class="imageFix" src="https://images.unsplash.com/photo-1478733672327-ce27bc999503?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTR8fGxlYXZlcyUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D" width="500" height="751"  alt="Autumn Season">
+                      </div>
+                  </div>
+                  <div class="card">
+                      <div class="image-wrapper">
+                          <img class="imageFix" src="https://images.unsplash.com/photo-1478733672327-ce27bc999503?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTR8fGxlYXZlcyUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D" width="500" height="751" alt="Autumn Season">
+                      </div>
+                  </div>
+                  <div class="card">
+                      <div class="image-wrapper">
+                          <img class="imageFix" src="https://images.unsplash.com/photo-1478733672327-ce27bc999503?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTR8fGxlYXZlcyUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D" width="500" height="751"  alt="Autumn Season">
+                      </div>
+                  </div>
+              </div>
+              </div>
+            </div>
+
+            <!-- Feed Page -->
+            <div class="feed-container">
+              <div class="row feed-head between">
+                <h2>Latest Feed</h2>
+                <ul class="list-group row">
+                  <li><button class="link-btn btn" type="button" id="horizontalBtn" title="Horizontal Views"><i class="ri-layout-horizontal-line"></i></button></li>
+                  <li><button class="link-btn btn active" type="button" id="normalBtn" title="Normal Views"><i class="ri-function-line"></i></button></li>
+                </ul>
+              </div>
+              <div class="card-wrapper" id="feedContainer">
+                <div class="third">
+                  <div class="content">
+                    <h3 class="text-md">Desert landspace</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, vitae!</p>
+                    <span>54k Likes</span>
+                  </div>
+                  <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1511860810434-a92f84c6f01e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fGRlc2VydCUyMGxhbmRzY2FwZXxlbnwwfHwwfHx8MA%3D%3D" width="500" height="750" alt="Desert landspace" class="imageFix">
+                  </div>
+                </div>
+                <div class=" third">
+                  <div class="content">
+                    <h3 class="text-md">Snow mountain</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, vitae!</p>
+                    <span>32k Likes</span>
+                  </div>
+                  <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1624303372865-521f96c14adb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Snow mountain" width="965" height="643" class="imageFix">
+                  </div>
+                </div>
+                <div class=" third">
+                  <div class="content">
+                    <h3 class="text-md">Sea wave</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut fugiat nulla accusantium perspiciatis repellendus dolore!</p>
+                    <span>32k Likes</span>
+                  </div>
+                  <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sea wave" width="965" height="643" class="imageFix">
+                  </div>
+                </div>
+                <div class=" third">
+                  <div class="content">
+                    <h3 class="text-md">Waterfall</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, cum quia? Vel distinctio nemo laudantium placeat cupiditate eius ipsa.</p>
+                    <span>22k Likes</span>
+                  </div>
+                  <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518630127918-accb98387d9f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8" alt="Waterfall" width="500" height="347" class="imageFix">
+                  </div>
+                </div>
+                <div class=" third">
+                  <div class="content">
+                    <h3 class="text-md">Oceans</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, sit?</p>
+                    <span>10k Likes</span>
+                  </div>
+                  <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1504681869696-d977211a5f4c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODN8fG9jZWFufGVufDB8fDB8fHww" alt="Oceans" width="500" height="890" class="imageFix">
+                  </div>
+                </div>
+                <div class=" third">
+                  <div class="content">
+                    <h3 class="text-md">Sunset mountain</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt ducimus incidunt facilis. Adipisci, laborum nemo.</p>
+                    <span>13k Likes</span>
+                  </div>
+                  <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1444031159740-aac76e6ddb38?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzZ8fHN1bnNldCUyMG1vdW50YWlufGVufDB8fDB8fHww" alt="Sunset mountain" class="imageFix">
+                  </div>
+                </div>
+
+                  <!--! copy for remove -->
+                  <div class="third">
+                    <div class="content">
+                      <h3 class="text-md">Desert landspace</h3>
+                      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, vitae!</p>
+                      <span>54k Likes</span>
+                    </div>
+                    <div class="image-wrapper">
+                      <img src="https://images.unsplash.com/photo-1511860810434-a92f84c6f01e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fGRlc2VydCUyMGxhbmRzY2FwZXxlbnwwfHwwfHx8MA%3D%3D" width="500" height="750" alt="Desert landspace" class="imageFix">
+                    </div>
+                  </div>
+                  <div class=" third">
+                    <div class="content">
+                      <h3 class="text-md">Snow mountain</h3>
+                      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis, vitae!</p>
+                      <span>32k Likes</span>
+                    </div>
+                    <div class="image-wrapper">
+                      <img src="https://images.unsplash.com/photo-1624303372865-521f96c14adb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Snow mountain" width="965" height="643" class="imageFix">
+                    </div>
+                  </div>
+                  <div class=" third">
+                    <div class="content">
+                      <h3 class="text-md">Sea wave</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut fugiat nulla accusantium perspiciatis repellendus dolore!</p>
+                      <span>32k Likes</span>
+                    </div>
+                    <div class="image-wrapper">
+                      <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sea wave" width="965" height="643" class="imageFix">
+                    </div>
+                  </div>
+                  <div class=" third">
+                    <div class="content">
+                      <h3 class="text-md">Waterfall</h3>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, cum quia? Vel distinctio nemo laudantium placeat cupiditate eius ipsa.</p>
+                      <span>22k Likes</span>
+                    </div>
+                    <div class="image-wrapper">
+                      <img src="https://images.unsplash.com/photo-1518630127918-accb98387d9f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8" alt="Waterfall" width="500" height="347" class="imageFix">
+                    </div>
+                  </div>
+                  <div class=" third">
+                    <div class="content">
+                      <h3 class="text-md">Oceans</h3>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, sit?</p>
+                      <span>10k Likes</span>
+                    </div>
+                    <div class="image-wrapper">
+                      <img src="https://images.unsplash.com/photo-1504681869696-d977211a5f4c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODN8fG9jZWFufGVufDB8fDB8fHww" alt="Oceans" width="500" height="890" class="imageFix">
+                    </div>
+                  </div>
+                  <div class=" third">
+                    <div class="content">
+                      <h3 class="text-md">Sunset mountain</h3>
+                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt ducimus incidunt facilis. Adipisci, laborum nemo.</p>
+                      <span>13k Likes</span>
+                    </div>
+                    <div class="image-wrapper">
+                      <img src="https://images.unsplash.com/photo-1444031159740-aac76e6ddb38?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzZ8fHN1bnNldCUyMG1vdW50YWlufGVufDB8fDB8fHww" alt="Sunset mountain" class="imageFix">
+                    </div>
+                  </div>
+                  <!--! copy remove end -->
+              </div>
+            </div>
+          </section>
+          <section class="right-side-container">
+              <div class="banner-sm">
+                <img src="https://images.squarespace-cdn.com/content/v1/53bc4798e4b018d9b4809d82/1503946387169-76O5QSM4LZ5WI0NUVDML/Benjamin-Hardman-Portrait.jpg?format=1000w" alt="Man with white backgroud" width="958" height="958" class="imageFix">
+              </div>
+              <div class="column gap-2 description">
+                <h2 class="pt-2">BEBJAMIN HARDMAN</h2>
+                <div class="row gap-2">
+                <span>882k <span class="text-thinn">Photo</span></span>
+                <span>882k <span class="text-thinn">Follower</span></span>
+                </div>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga numquam ex quas, soluta nemo ad.</p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum excepturi aut optio recusandae at!.. <a href="#" title="Read More">Read More</a></p>
+                <div class="column gap-4">
+                  <div>
+                    <span>Locations</span>
+                    <p>Based in Iceland</p>
+                    </div>
+                    <div>
+                    <span>Perfession</span>
+                    <p>Photographer</p>
+                    </div>
+                    <div>
+                    <span>Perfession</span>
+                    <p>Photographer</p>
+                    </div>
+                </div>
+              </div>
+          </section>
+        </div>
+      </main>
+  </div>
+  
+
+  
+  <script src="home.js"></script>
+</body>
+</html>
