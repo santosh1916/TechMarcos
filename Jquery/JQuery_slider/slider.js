@@ -81,12 +81,12 @@ function handleFiles(files) {
       };
       allImageArray.push(fileData);
       localStorage.setItem("images", JSON.stringify(allImageArray));
+      alert("Data Save to localStorage please reload the page")
       // alert here! for sucessfull compilation the all code
     };
     reader.readAsDataURL(files[i]);
     }
   }
-  displayData();
 }
 
 // ++++++++++++++++++++++++++++++
