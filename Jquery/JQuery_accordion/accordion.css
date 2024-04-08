@@ -126,11 +126,14 @@ html , body{
         transform-origin: center;
         transition: all ease-in-out .3s;
     }
+    .vertical-line{
+        transform: rotate(-90deg);
+    }
 }
 
 .sub-head-3[aria-expanded = "true"] > .circle-box{
     .vertical-line{
-        transform: rotate(-90deg);
+        transform: rotate(0);
     }
 }
 .content-wrapper{
