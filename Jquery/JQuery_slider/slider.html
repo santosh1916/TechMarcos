@@ -7,8 +7,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/>
     <script src="../jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
     <link rel="stylesheet" href="slider.css" />
   </head>
   <body>
@@ -42,36 +46,111 @@
         <section>
             <div class="row-wrapper center">
                 <div class="wrapper thirdth">
-                    Lorem dolor sit amet consectetur adipisicing elit. Voluptatibus provident totam facere porro magnam odio eius quaerat veniam! Dignissimos sit aspernatur accusantium iure sed ipsam consequatur impedit quis at. Distinctio?
+                  <form class="form-container" id="myForm" enctype='multipart/form-data'>
+                      <div class="drag-file-area" id="drag-Area">
+                        <label class="label" for="inputFile">
+                          <span class="material-icons-outlined upload-icon"> file_upload </span>
+                          <h3 class="dynamic-message"> Drag & drop any file here </h3>
+                          <span>or</span>
+                          <span class="browse-files-text">browse file from device</span>
+                          <input type="file" class="default-file-input" id="inputFile" accept="image/*" multiple/>
+                        </label>
+                      </div>
+                    <button type="submit" class="upload-button">Upload</button>
+                  </form>
                 </div>
                 <!-- Slider main container -->
                 <div class="wrapper seventh">
-                    <div class="swiper">
-                        <div class="swiper-wrapper">
-                          <div class="swiper-slide">
-                            <div class="card"></div>
+                    <div class="slider-wrapper" id="card-container">
+                      <div class="slide">
+                        <div class="card">
+                          <div class="card-content">
+                            <h3>Santorini</h3>
+                            <p>Lorem ipsum dolor sit amet.</p>
                           </div>
-                          <div class="swiper-slide">
-                            <div class="card"></div>
+                          <img class="imgFix" src="https://plus.unsplash.com/premium_photo-1661964149725-fbf14eabd38c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Santorini" width="1437" height="958"> 
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="card">
+                          <div class="card-content">
+                            <h3>Santorini iland</h3>
+                            <p>Lorem ipsum dolor sit amet. Lorem, ipsum dolor.</p>
                           </div>
-                          <div class="swiper-slide">
-                            <div class="card"></div>
+                          <img class="imgFix" src="https://images.unsplash.com/photo-1629470035936-3296c3bd8237?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Santorini iland" width="638" height="958">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="card">
+                          <div class="card-content">
+                            <h3>Bali</h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet, inventore.</p>
                           </div>
-                          <div class="swiper-slide">
-                            <div class="card"></div>
+                          <img class="imgFix" src="https://plus.unsplash.com/premium_photo-1668883188861-39974ed9ad99?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bali" width="766" height="958">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="card">
+                          <div class="card-content">
+                            <h3>Santorini</h3>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia, libero!</p>
                           </div>
-                          <div class="swiper-slide">
-                            <div class="card"></div>
+                          <img class="imgFix" src="https://images.unsplash.com/photo-1618500031461-a5fc01e96763?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Santorini" width="638" height="958">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="card">
+                          <div class="card-content">
+                            <h3>Capadocia</h3>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
                           </div>
-                          <div class="swiper-slide">
-                            <div class="card"></div>
+                          <img class="imgFix" src="https://images.unsplash.com/photo-1693683198442-e29256010ecc?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Capadocia" width="638" height="958">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="card">
+                          <div class="card-content">
+                            <h3>Bali</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit.</p>
                           </div>
-                          <div class="swiper-slide">
-                            <div class="card"></div>
+                          <img class="imgFix" src="https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bali" width="718" height="958">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="card">
+                          <div class="card-content">
+                            <h3>Santorini iland</h3>
+                            <p>Lorem ipsum dolor sit.</p>
                           </div>
-                          <div class="swiper-slide">
-                            <div class="card"></div>
+                          <img class="imgFix" src="https://images.unsplash.com/photo-1517926967795-31943e805dae?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Santorini iland" width="638" height="958">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="card">
+                          <div class="card-content">
+                            <h3>Santorini</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, animi.</p>
                           </div>
+                          <img class="imgFix" src="https://plus.unsplash.com/premium_photo-1661964149725-fbf14eabd38c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Santorini" width="1437" height="958"> 
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="card">
+                          <div class="card-content">
+                            <h3>Santorini iland</h3>
+                            <p>Lorem ipsum dolor sit amet.</p>
+                          </div>
+                          <img class="imgFix" src="https://images.unsplash.com/photo-1629470035936-3296c3bd8237?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Santorini iland" width="638" height="958">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="card">
+                          <div class="card-content">
+                            <h3>Bali</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, beatae?</p>
+                          </div>
+                          <img class="imgFix" src="https://plus.unsplash.com/premium_photo-1668883188861-39974ed9ad99?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bali" width="766" height="958">
+                        </div>
                       </div>
                     </div>
                 </div>
@@ -80,12 +159,18 @@
 
         <!-- bottom -->
         <footer>
-            <div class="navbar">
+            <div class="navbar row-wrapper between">
                 <ul class="row-wrapper links">
-                    <li><a href="#" title="Facebook"><i class="ri-facebook-fill"></i></a></li>
-                    <li><a href="#" title="YouTube"><i class="ri-youtube-fill"></i></a></li>
-                    <li><a href="#" title="Instagram"><i class="ri-instagram-line"></i></a></li>
+                    <li><a class="btn" href="#" title="Facebook"><i class="ri-facebook-fill"></i></a></li>
+                    <li><a class="btn" href="#" title="YouTube"><i class="ri-youtube-fill"></i></a></li>
+                    <li><a class="btn" href="#" title="Instagram"><i class="ri-instagram-line"></i></a></li>
                 </ul>
+                <p>UNIQUE DESTINATIONS</p>
+                <div><span>01 / 03</span></div>
+                <div class="btn-group">
+                  <button type="button" title="Next" class="btn-outline prev-btn" id="previous"><i class="ri-arrow-left-s-line"></i></button>
+                  <button type="button" title="Next" class="btn-outline next-btn" id="next"><i class="ri-arrow-right-s-line"></i></button>
+                </div>
             </div>
         </footer>
       </div>
