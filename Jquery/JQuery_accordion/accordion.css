@@ -71,8 +71,8 @@ html , body{
 
 /* text style */
 .text-2xl{
-    font-size: 7.5rem;
-    line-height: 8rem;
+    font-size: 6.7vw;
+    line-height: 7vw;
     font-weight: 100;
 }
 .text-right{
@@ -108,8 +108,8 @@ html , body{
     margin-right: 20px;
     position: relative;
     display: inline-block;
-    width: 5rem;
-    height: 5rem;
+    width: 5vw;
+    height: 5vw;
     border-radius: 50%;
     border: 1px solid #000;
     transition: all ease-in-out .3s;
@@ -120,7 +120,7 @@ html , body{
     .line{
         position: absolute;
         display: inline-block;
-        width: 80%;
+        width: calc(100% - 20px);
         height: .5px;
         background-color: #000;
         transform-origin: center;
@@ -137,7 +137,10 @@ html , body{
     }
 }
 .content-wrapper{
-    margin-left: 100px;
+    margin-left: 7vw;
     padding: 0 10px;
+    background: linear-gradient(90deg,#9C9389 , #07070700);
+    color: #000;
+    border-radius: 4px;
 
 }
