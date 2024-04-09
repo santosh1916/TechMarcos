@@ -81,3 +81,48 @@ function createCard(img, index) {
 // Initial display of data
 showData();
 // ----------------------------------------------------------------------------------------------------
+
+
+
+
+// Que 4 Load more functionalities
+
+$(document).ready(function() {
+  let page = 1;
+  let perPage = 5;
+
+  function loadmore() {
+      $.ajax({
+          url: 'https://api.unsplash.com/photos/',
+          type: 'GET',
+          data: {
+              client_id: 'zbqpFXTRnAW5i_CiT7asY3n7sCy5dTYisF810tG5iWs',
+              page: page,
+              per_page: perPage
+          },
+          success: function(response) {
+              response.forEach(function(photo) {
+                  console.log(photo.user.bio)
+                  let card = $('<div>', {
+                      class: 'column'
+                  }).html(`<img class="card-img" src="${photo.urls.regular}" alt="${photo.user.bio}">`)
+                  $('#content').append(card);
+              });
+              page++;
+          },
+          error: function(xhr, status, error) {
+              console.error('Error loading content:', error);
+          }
+      });
+  }
+
+  loadmore();
+
+  $(window).scroll(function() {
+      if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+          loadmore(); 
+      }
+  });
+});
+
+

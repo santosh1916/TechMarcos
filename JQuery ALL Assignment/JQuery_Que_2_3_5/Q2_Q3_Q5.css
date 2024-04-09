@@ -203,8 +203,8 @@ html , body{
     transition:.3s;
 }
 .card-img{
-    width: inherit;
-    height: inherit;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 .card-content{
@@ -246,3 +246,11 @@ html , body{
         border: none;
     }
 }    
+
+.load-more-section .row{
+    width: 100%;
+
+    .column{
+        flex: 0 0 calc(100% / 4 - 3rem);
+    }
+}
