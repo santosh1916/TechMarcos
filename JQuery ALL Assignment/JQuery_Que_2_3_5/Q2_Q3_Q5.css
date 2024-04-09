@@ -15,7 +15,9 @@ html , body{
     background-color: var(--theme-color);
     /* font-size: 16px; */
 }
-
+body::-webkit-scrollbar{
+    display: none;
+}
 .wrapper{
     padding: 60px 50px;
 }
@@ -37,16 +39,36 @@ html , body{
     display: flex;
     flex-direction: column;
     width: 30%;
-    gap: 30px;
-    padding: 20px;
+    padding: 10px 5px;
     list-style: none;
     background-color: var(--theme-second-color);
-    border-radius: 5px;
+    border-radius: 3px;
     position: absolute;
     top: 100%;
     transform-origin: top;
     transform: scaleY(0);
     transition: all ease-in-out .3s;
+
+    .btn{
+        display: block;
+        padding: 7px;
+
+        &&:hover{
+            border: none;
+            background-color: var(--theme-color);
+        }
+    }
+}
+.subnav::before{
+    content: "";
+    position: absolute;
+    top: -6%;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid var(--theme-second-color);
+
 }
 /* CSS */
 .scale-up {
