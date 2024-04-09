@@ -12,7 +12,15 @@
     <header class="wrapper">
       <nav class="navbar">
         <ul class="list-wrapper">
-          <li><a class="btn" href="#" title="PHILOSOPHY">PHILOSOPHY</a></li>
+          <li class="links">
+            <a class="btn" href="#" title="PHILOSOPHY">PHILOSOPHY</a>
+            <ul class="subnav">
+              <li><a class="btn" href="#">PHILOSOPHY BOOK</a></li>
+              <li><a class="btn" href="#">READER</a></li>
+              <li><a class="btn" href="#">BUY A BOOK</a></li>
+              <li><a class="btn" href="#">SEE ALL BOOKS</a></li>
+            </ul>
+          </li>
           <li><a class="btn" href="#" title="SERVICES">SERVICES</a></li>
           <li><a class="btn" href="#" title="TEAM">TEAM</a></li>
         </ul>
@@ -44,7 +52,7 @@
       </div>
     </section>
     <section class="wrapper">
-        <h2>PHILOSOPHY</h2>
+        <h2 class="text-heavy">PHILOSOPHY</h2>
         <div id="accordion" class="accordion-section">
             <h3 class="text-2xl sub-head-3">
                 <span class="circle-box">
@@ -83,6 +91,26 @@
               </p>
             </div>
           </div>
+    </section>
+
+    <!-- Gallery feature -->
+    
+    <section class="wrapper gallery-section">
+      <h2 class="text-heavy">IMAGE GALLERY</h2>
+      <div class="row" id="gallery-container">
+        <!-- ! Column insert through javaScript File -->
+        <div class="column add-image-card">
+          <form action="#" enctype="multipart/form-data">
+            <label for="chooseImage" class="chooseImage-label">
+              <span class="circle-box">
+                <span class="line"></span>
+                <span class="line vertical-line"></span>
+              </span>
+             <input class="chooseImage-input" type="file" accept="image/*" title="Add Image" id="chooseImage" multiple>
+            </label>
+          </form>
+        </div>
+      </div>
     </section>
     <script src="accordion.js"></script>
   </body>
