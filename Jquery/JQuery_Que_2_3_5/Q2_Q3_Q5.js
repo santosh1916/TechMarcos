@@ -1,22 +1,24 @@
+// Ques 3 functionality js code
 $("#accordion").accordion({
     collapsible: true,
     heightStyle: "fill"
 })
 
+// ----------------------------------------------------------------------------------------------------------------
+
+// Ques 2 functionality js code
+  $(".btn[title='PHILOSOPHY']").click(function() {
+    $(this).next(".subnav").toggleClass("scale-up" ,  "scale-down");
+});
+
+// --------------------------------------------------------------------------------------------------------------------------
+
+// Ques 5 functionality js code
 $( function() {
     $( ".row" ).sortable({
         items: $(".gallery-img")
     });
   });
-
-
-  $(".btn[title='PHILOSOPHY']").click(function() {
-    $(this).next(".subnav").toggleClass("scale-up" ,  "scale-down");
-});
-
-
-
-
 
 //   Handle add image from
 let ImageGalleryDatabase = JSON.parse(localStorage.getItem("Gallery")) || [];
@@ -78,4 +80,4 @@ function createCard(img, index) {
 
 // Initial display of data
 showData();
-
+// ----------------------------------------------------------------------------------------------------
