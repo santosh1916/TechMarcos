@@ -6,10 +6,42 @@ $("#accordion").accordion({
 
 // ----------------------------------------------------------------------------------------------------------------
 
-// Ques 2 functionality js code
-  $(".btn[title='PHILOSOPHY']").click(function() {
-    $(this).next(".subnav").toggleClass("scale-up" ,  "scale-down");
-});
+// Ques 2 functionality js code-
+// console.log(navData)
+let navDataBase = JSON.parse(localStorage.getItem("NavData")) || [];
+function openAddMenuModail(){
+  $("#form-container").css("transform" , "scale(1)")
+ 
+}
+function closeModel(){
+  $("#form-container").css("transform" , "scale(0)")
+}
+
+// navData = [
+//   { 
+//     name: 'PHILOSOPHY',
+//     data: { 
+//       description: 'This is the philosophy section.',
+//       relatedLinks: ['link1', 'link2', 'link3']
+//     }
+//   },
+// ];
+navDataBase.forEach((elem)=>{
+  $("#addto").append(`<option value="${elem.name}">${elem.name}</option>`)
+})
+
+$('.form-wrapper').submit((e)=>{
+  e.preventDefault()
+  let setNavData = { 
+    name: $("#addto")[0].value.toUpperCase(),
+    data: { 
+      description: $('#AddMenu')[0].value.toUpperCase(),
+      relatedLinks: []
+    }
+  }
+  navDataBase.push(setNavData);
+  localStorage.setItem("NavData", JSON.stringify(navDataBase));
+})
 
 // --------------------------------------------------------------------------------------------------------------------------
 
@@ -96,7 +128,7 @@ $(document).ready(function() {
           url: 'https://api.unsplash.com/photos/',
           type: 'GET',
           data: {
-              client_id: '',
+              client_id: 'zbqpFXTRnAW5i_CiT7asY3n7sCy5dTYisF810tG5iWs',
               page: page,
               per_page: perPage
           },

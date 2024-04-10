@@ -4,29 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="Q2_Q3_Q5.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
   </head>
   <body>
     <header class="wrapper">
-      <nav class="navbar">
+      <nav class="navbar" id="navbar">
+        <div class="box" id="form-container">
+          <form action="#" class="form-wrapper" name="addMenuForm">
+            <div class="d-flex">
+              <span class="">ADD NEW MENU LIST</span>
+            <button class="btn" type="button" title="Close" onclick="closeModel()"><i class="ri-close-large-line"></i></button>
+            </div>
+            <div>
+              <label for="AddMenu" class="form-label text-md">Menu name</label>
+              <input type="text" class="form-input" name="menuName" id="AddMenu">
+            </div>
+            <div>
+              <label for="addto" class="form-label text-md">Add to</label>
+              <select name="insertTo" id="addto" class="form-input">
+                <option value="" selected>CHOOSE...</option>
+                <option value="PARENT">PARENT</option>
+
+              </select>
+            </div>
+            <button class="btn" type="submit">SUBMIT</button>
+          </form>
+        </div>
         <ul class="list-wrapper">
-          <li class="links">
+          <li>
             <a class="btn" href="#" title="PHILOSOPHY">PHILOSOPHY</a>
-            <!-- Que 2 Create dynamic nested menu-->
-            <ul class="subnav">
-              <li>
-                Add Menu Button
-              </li>
-              <li><a class="btn" href="#">PHILOSOPHY BOOK</a></li>
-              <li><a class="btn" href="#">READER</a></li>
-              <li><a class="btn" href="#">BUY A BOOK</a></li>
-              <li><a class="btn" href="#">SEE ALL BOOKS</a></li>
+            <ul class="subnav" id="sub-link">
+              <li><a class="btn" href="#">sub-link</a></li>
             </ul>
           </li>
           <li><a class="btn" href="#" title="SERVICES">SERVICES</a></li>
           <li><a class="btn" href="#" title="TEAM">TEAM</a></li>
+          <li><button type="button" class="btn" title="ADD NEW MENU" onclick="openAddMenuModail()"><i class="ri-add-large-line"></i> ADD</button></li>
         </ul>
       <div class="logo">
         <a class="btn text-heavy" href="#">BODEWISE</a>
