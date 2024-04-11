@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santosh Test - 11 April</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- Google font links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="wrapper">
+      <nav class="navbar">
+        <div class="box" id="form-container">
+            
+            <form id="registrationForm" class="form-wrapper">
+                <div class="d-flex">
+                    <h2>Get Premium Code</h2>
+                  <button class="btn" type="button" title="Close" onclick="closeModel()"><i class="ri-close-large-line"></i></button>
+                  </div>
+                <label for="fullName" class="form-label" >Full Name:</label>
+                <input type="text" id="fullName" class="form-input" name="fullName" required>
+            
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" id="email" class="form-input" name="email" required>
+            
+                <button type="submit" class="btn">Register</button>
+            </form>
+          </div>
+          <div class="logo">
+            <a class="btn text-md" href="#">Santosh</a>
+          </div>
+        <ul class="list-wrapper">
+          <li><a class="btn" title="HOME" href="">HOME</a></li>
+          <li><a class="btn" title="SERVICES" href="">SERVICES</a></li>
+          <li><a class="btn" title="ABOUT" href="">ABOUT</a></li>
+          <li><a class="btn" title="CONTACT US" href="">CONTACT US</a></li>
+          <li><button type="button" class="btn" title="ADD NEW MENU" onclick="openAddMenuModail()"><i class="ri-add-large-line"></i> GET PREMIUM</button></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="d-flex ">
+      <div class="heading-box sixth">
+          <h1 class="text-xl text-right"><span class="text-theme">Photography</span> Explore Captivating</h1>
+        <p class="text-md">"Welcome to our visual storytelling journey, where each photo reveals a captivating narrative. We transform moments into timeless art, evoking emotions and sparking imagination. Explore our gallery for stunning images that showcase life's beauty from unique perspectives. Let us take you on a captivating journey through the art of photography."</p>
+      </div>
+      <div class="seventh sixth">
+        <div class="banner-lg">
+          <img
+            class="imgFix"
+            src="https://images.unsplash.com/photo-1555617117-08d2a80f6aa9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Bodewise"
+            width="638"
+            height="958"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="wrapper">
+        <h2 class="text-heavy">Photography</h2>
+        <div id="accordion" class="accordion-section">
+            <h3 class="text-l sub-head-3">
+                <span class="circle-box">
+                    <span class="horizontal-line line"></span>
+                    <span class="vertical-line line"></span>
+                </span>
+                <span>Capture the Moment</span>
+            </h3>
+            <div class="content-wrapper">
+              <p class="text-md">
+                Unveil the essence of timeless moments through the lens of [Photographer's Name], capturing unforgettable scenes that resonate with beauty and emotion, frozen in time for you to cherish.
+              </p>
+            </div>
+            <h3 class="text-l sub-head-3">
+                <span class="circle-box">
+                    <span class="horizontal-line line"></span>
+                    <span class="vertical-line line"></span>
+                </span>
+                <span>Visions in Focus</span>
+            </h3>
+            <div class="content-wrapper">
+              <p class="text-md">
+                Embark on a visual journey into the world of captivating imagery by [Photographer's Name], where every frame is meticulously crafted to showcase breathtaking beauty and artistic vision.
+              </p>
+            </div>
+            <h3 class="text-l sub-head-3">
+                <span class="circle-box">
+                    <span class="horizontal-line line"></span>
+                    <span class="vertical-line line"></span>
+                </span>
+                <span>Discover Beauty</span>
+            </h3>
+            <div class="content-wrapper">
+              <p class="text-md">
+                Dive into a realm of artistic expression and discover the inherent beauty of everyday scenes, skillfully captured by [Photographer's Name] through a lens that sees beyond the ordinary.
+              </p>
+            </div>
+            <h3 class="text-l sub-head-3">
+                <span class="circle-box">
+                    <span class="horizontal-line line"></span>
+                    <span class="vertical-line line"></span>
+                </span>
+                <span>Experience Life's Moments with Me</span>
+            </h3>
+            <div class="content-wrapper">
+              <p class="text-md">
+                Experience life's fleeting moments in vivid detail through the lens of [Photographer's Name], where each photograph tells a unique story and preserves memories that resonate with depth and authenticity.
+              </p>
+            </div>
+            <h3 class="text-l sub-head-3">
+                <span class="circle-box">
+                    <span class="horizontal-line line"></span>
+                    <span class="vertical-line line"></span>
+                </span>
+                <span>Journey of Light</span>
+            </h3>
+            <div class="content-wrapper">
+              <p class="text-md">
+                Embark on a mesmerizing journey of light and creativity with [Photographer's Name], whose innovative approach to photography illuminates scenes with a blend of artistry and technical prowess, creating captivating visual narratives.
+              </p>
+            </div>
+        
+        </div>
+    </section>
+    
+    <section class="wrapper gallery-section">
+        <h2 class="text-heavy">PREMIUM GALLERY</h2>
+        <P class="text-md">You can upload your photo and see PREMIUM Photography</P>
+        <button type="button" class="btn" id="unlockBtn">UNLOCK PREMIUM</button>
+        <!-- premium feature login form -->
+        <div id="premiumForm" class="premium-form">
+            <label for="loginCode" class="form-label">Enter Login Code:</label>
+            <input type="text" id="loginCode" class="form-input">
+            <button id="submitCode" class="btn" type="button" title="button">Submit</button>
+          </div>
+      <div class="row" id="gallery-container">
+
+        <div class="column add-image-card" id="uploadImageForm">
+          <form action="#" enctype="multipart/form-data">
+            <label for="chooseImage" class="chooseImage-label">
+              <span class="circle-box">
+                <span class="line"></span>
+                <span class="line vertical-line"></span>
+              </span>
+             <input class="chooseImage-input" type="file" accept="image/*" title="Add Image" id="chooseImage" multiple>
+            </label>
+          </form>
+        </div>
+      </div>
+    </section>
+
+
+    <!--Que 4 Develop a "load more" button functionality that fetches additional content from a server using AJAX and appends it to the page dynamically -->
+
+    <section class="wrapper load-more-section">
+      <h2 class="text-heavy">Image From Unplash with Fade effect</h2>
+      <div class="row" id="content">
+        <!-- Content will be dynamically loaded here -->
+    </div>
+    </section>
+
+
+    <!-- Extranal Js File -->
+    <script src="script.js"></script>
+  </body>
+</html>
