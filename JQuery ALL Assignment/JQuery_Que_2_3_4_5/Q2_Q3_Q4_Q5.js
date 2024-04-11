@@ -61,9 +61,13 @@ $(document).ready(function() {
   }
 
   // Show child elem on click parent link
-  $("#parent-link").on("click", ".btn", function() {
-    $(".subnav").removeClass("scale-up");
-    $(this).next(".subnav").toggleClass("scale-up");
+  $("#parent-link").on("click mouseleave mouseenter", ".btn", function(e) {
+    if(e.type == 'mouseenter'){
+      $(this).next(".subnav").addClass("scale-up");
+    }
+    if(e.type == 'click'){
+      $(this).next(".subnav").toggleClass("scale-up");
+    }
   });
 
   // Form submission handling
