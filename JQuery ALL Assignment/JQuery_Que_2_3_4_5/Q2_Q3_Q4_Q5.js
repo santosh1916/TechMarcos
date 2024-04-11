@@ -3,12 +3,9 @@ $("#accordion").accordion({
     collapsible: true,
     heightStyle: "fill"
 })
+//!XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-// ----------------------------------------------------------------------------------------------------------------
-
-// Ques 2 functionality js code-
-// console.log(navData)
-let navDataBase = JSON.parse(localStorage.getItem("NavData")) || [];
+// Ques 2 functionality js code
 function openAddMenuModail(){
   $("#form-container").css("transform" , "scale(1)")
  
@@ -17,33 +14,88 @@ function closeModel(){
   $("#form-container").css("transform" , "scale(0)")
 }
 
-// navData = [
-//   { 
-//     name: 'PHILOSOPHY',
-//     data: { 
-//       description: 'This is the philosophy section.',
-//       relatedLinks: ['link1', 'link2', 'link3']
-//     }
-//   },
-// ];
-navDataBase.forEach((elem)=>{
-  $("#addto").append(`<option value="${elem.name}">${elem.name}</option>`)
-})
+$(document).ready(function() {
+  let navData = JSON.parse(localStorage.getItem("NavData")) || [];
 
-$('.form-wrapper').submit((e)=>{
-  e.preventDefault()
-  let setNavData = { 
-    name: $("#addto")[0].value.toUpperCase(),
-    data: { 
-      description: $('#AddMenu')[0].value.toUpperCase(),
-      relatedLinks: []
+  function generateMenu() {
+    let parentLink = $("#parent-link");
+    parentLink.empty(); // Clear existing menu items
+    
+    navData.forEach(item => {
+      let menuItem = $(`<li class = "parent-li"><a class="btn" href="#" title="${item.links}">${item.links}</a></li>`);
+      if (item.sublinks && item.sublinks.length > 0) {
+        let submenu = $(`<ul class='subnav'></ul>`);
+        item.sublinks.forEach(sublink => {
+          submenu.append(`<li><a class="btn" href="#">${sublink}</a></li>`);
+        });
+        menuItem.append(submenu);
+      }
+      parentLink.append(menuItem);
+    });
+
+    // Populate the select dropdown based on existing links in navData
+    let selectDropdown = $("#addto");
+    selectDropdown.empty();
+    selectDropdown.append(`
+    <option value="" selected>CHOOSE...</option>
+                <option value="PARENT">PARENT</option>
+    `)
+    navData.forEach(elem => {
+      selectDropdown.append(`<option value="${elem.links}">${elem.links}</option>`);
+      });
     }
-  }
-  navDataBase.push(setNavData);
-  localStorage.setItem("NavData", JSON.stringify(navDataBase));
-})
 
-// --------------------------------------------------------------------------------------------------------------------------
+  // Function to append a new menu item
+  function appendMenu(item) {
+    let parentLink = $("#parent-link");
+    let menuItem = $(`<li><a class="btn" href="#" title="${item.links}">${item.links}</a></li>`);
+    if (item.sublinks && item.sublinks.length > 0) {
+      let submenu = $(`<ul class='subnav'></ul>`);
+      item.sublinks.forEach(sublink => {
+        submenu.append(`<li><a class="btn" href="#">${sublink}</a></li>`);
+      });
+      menuItem.append(submenu);
+    }
+    parentLink.append(menuItem);
+    
+  }
+
+  // Show child elem on click parent link
+  $("#parent-link").on("click", ".btn", function() {
+    $(".subnav").removeClass("scale-up");
+    $(this).next(".subnav").toggleClass("scale-up");
+  });
+
+  // Form submission handling
+  $('.form-wrapper').submit((e) => {
+    e.preventDefault();
+    let addto = $("#addto").val().toUpperCase();
+    let menuData = $('#AddMenu').val().toUpperCase();
+
+    if (addto === 'PARENT' || !addto) {
+      let data = {
+        links: menuData,
+        sublinks: []
+      };
+      navData.push(data);
+      appendMenu(data); // Append the new menu item
+    } else {
+      let parent = navData.find(item => item.links === addto);
+      if (parent) {
+        parent.sublinks.push(menuData);
+        generateMenu(); // Regenerate the entire menu
+      }
+    }
+    alert("link add successFull")
+    localStorage.setItem("NavData", JSON.stringify(navData));
+  });
+
+  // Initial menu generation
+  generateMenu();
+});
+// !XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+
 
 // Ques 5 functionality js code
 $( function() {
@@ -112,8 +164,8 @@ function createCard(img, index) {
 
 // Initial display of data
 showData();
-// ----------------------------------------------------------------------------------------------------
 
+//! xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
 

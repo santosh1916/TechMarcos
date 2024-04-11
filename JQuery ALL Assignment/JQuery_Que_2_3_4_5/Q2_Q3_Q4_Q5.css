@@ -79,7 +79,7 @@ select[class='form-input']{
 .subnav{
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 20%;
     padding: 10px 5px;
     list-style: none;
     background-color: var(--theme-second-color);
@@ -87,7 +87,7 @@ select[class='form-input']{
     position: absolute;
     top: 100%;
     transform-origin: top;
-    /* transform: scaleY(0); */
+    transform: scaleY(0);
     transition: all ease-in-out .3s;
 
     .btn{
@@ -103,12 +103,12 @@ select[class='form-input']{
 .subnav::before{
     content: "";
     position: absolute;
-    top: -15%;
+    top: -10%;
     width: 0;
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid var(--theme-second-color);
+    /* border-bottom: 10px solid var(--theme-second-color); */
 
 }
 /* CSS */
@@ -119,6 +119,7 @@ select[class='form-input']{
 .scale-down {
     transform: scaleY(0);
 }
+
 
 .btn{
     color: #000;

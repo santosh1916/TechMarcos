@@ -12,6 +12,7 @@
   <body>
     <header class="wrapper">
       <nav class="navbar" id="navbar">
+        <!-- ! Que 2 Nested Dynamic menu -->
         <div class="box" id="form-container">
           <form action="#" class="form-wrapper" name="addMenuForm">
             <div class="d-flex">
@@ -25,24 +26,16 @@
             <div>
               <label for="addto" class="form-label text-md">Add to</label>
               <select name="insertTo" id="addto" class="form-input">
-                <option value="" selected>CHOOSE...</option>
-                <option value="PARENT">PARENT</option>
+                <!-- Default dropdown show from js code -->
 
               </select>
             </div>
             <button class="btn" type="submit">SUBMIT</button>
           </form>
         </div>
-        <ul class="list-wrapper">
-          <li>
-            <a class="btn" href="#" title="PHILOSOPHY">PHILOSOPHY</a>
-            <ul class="subnav" id="sub-link">
-              <li><a class="btn" href="#">sub-link</a></li>
-            </ul>
-          </li>
-          <li><a class="btn" href="#" title="SERVICES">SERVICES</a></li>
-          <li><a class="btn" href="#" title="TEAM">TEAM</a></li>
-          <li><button type="button" class="btn" title="ADD NEW MENU" onclick="openAddMenuModail()"><i class="ri-add-large-line"></i> ADD</button></li>
+        <ul class="list-wrapper" id="parent-link">
+          
+          
         </ul>
       <div class="logo">
         <a class="btn text-heavy" href="#">BODEWISE</a>
@@ -51,6 +44,7 @@
           <li><a class="btn" href="#" title="TALK TO US">TALK TO US</a></li>
           <li><a class="btn" href="#" title="EN">EN</a></li>
           <li><a class="btn" href="#" title="DE">DE</a></li>
+          <li><button type="button" class="btn" title="ADD NEW MENU" onclick="openAddMenuModail()"><i class="ri-add-large-line"></i> ADD</button></li>
         </ul>
       </nav>
     </header>
@@ -124,6 +118,7 @@
       <h2 class="text-heavy">IMAGE GALLERY</h2>
       <div class="row" id="gallery-container">
         <!-- ! Column insert through javaScript File -->
+
         <div class="column add-image-card">
           <form action="#" enctype="multipart/form-data">
             <label for="chooseImage" class="chooseImage-label">
