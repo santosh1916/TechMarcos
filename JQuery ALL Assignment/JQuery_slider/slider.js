@@ -53,7 +53,7 @@ $(document).ready(function() {
     let files = event.originalEvent.dataTransfer.files;
     filesSelected = files;
   });
-
+\
   $('#inputFile').on('change', function() {
     let files = $('#inputFile')[0].files;
     filesSelected = files;
