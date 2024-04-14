@@ -1,4 +1,5 @@
 // localStorage operations using promise
+let ImageGalleryDatabase = JSON.parse(localStorage.getItem("Gallery")) || [];
 function writeToLocalStorage(key, data) {
     return new Promise((resolve, reject) => {
         try {
@@ -21,7 +22,6 @@ function readFromLocalStorage(key) {
     });
 }
 
-// Updated handleFiles function using promises
 function handleFiles(files) {
     if (files.length > 0) {
         let promises = [];
@@ -57,50 +57,34 @@ function readFile(file) {
     });
 }
 
-// Updated loadmore function using promises for AJAX call
-function loadmore() {
-    if (page <= maxPages) {
-        $.ajax({
-            url: 'https://api.unsplash.com/photos/',
-            type: 'GET',
-            data: {
-                client_id: 'zbqpFXTRnAW5i_CiT7asY3n7sCy5dTYisF810tG5iWs',
-                page: page,
-                per_page: perPage
-            }
-        })
-        .then(response => {
-            return new Promise((resolve, reject) => {
-                response.forEach(function (photo) {
-                    let card = $('<div>', {
-                        class: 'column',
-                        style: 'display: none;'
-                    }).html(`<img class="card-img" src="${photo.urls.regular}" alt="${photo.user.bio}">`)
-                    $('#content').append(card);
-                    card.fadeIn(2000);
-                });
-                page++;
-                resolve();
-            });
-        })
-        .catch(error => {
-            console.error('Error loading content:', error);
-        });
-    }
-}
 
-// Open add menu modal
 function openAddMenuModail() {
     $("#form-container").css("transform", "scale(1)");
 }
 
-// Close modal
 function closeModel() {
     $("#form-container").css("transform", "scale(0)");
 }
 
-// Registration form for get premium code
 $(document).ready(function() {
+    // by default imageUpload button hide
+    $("#uploadImageForm").hide();
+
+    if (isPremiumUnlocked()) {
+        showPremiumGallery();
+        $("#unlockBtn").hide();
+        $("#uploadImageForm").show();
+    }
+
+    $('#chooseImage').on('drop', function(event) {
+        event.preventDefault();
+        handleFiles(event.originalEvent.dataTransfer.files);
+    });
+
+    $('#chooseImage').on('change', function() {
+        handleFiles($('#chooseImage')[0].files);
+    });
+
     $('#registrationForm').submit(function(event) {
         event.preventDefault();
         const fullName = $('#fullName').val();
@@ -114,46 +98,43 @@ $(document).ready(function() {
         alert('Registration successful! Your premium code is: ' + premiumCode);
         $('#registrationForm')[0].reset();
     });
-});
 
-// Unlock Premium Button Click Event
-$("#uploadImageForm").hide(); // by default  upload image form hide
-$('#unlockBtn').click(function() {
-    $('#premiumForm').show();
-});
+    $('#unlockBtn').click(function() {
+        $('#premiumForm').show();
+    });
 
-// Submit Code Button Click Event
-$('#submitCode').click(function() {
-    const enteredCode = $('#loginCode').val();
-    const correctCode = localStorage.getItem('premiumCode');
-    if (enteredCode === correctCode) {
-        sessionStorage.setItem('premiumUnlocked', true);
-        $('#premiumForm').hide();
-        showPremiumGallery();
-        $("#uploadImageForm").show();
-    } else {
-        alert('Incorrect code. Please try again.');
-    }
-});
+    $('#submitCode').click(function() {
+        const enteredCode = $('#loginCode').val();
+        const correctCode = localStorage.getItem('premiumCode');
+        if (enteredCode === correctCode) {
+            sessionStorage.setItem('premiumUnlocked', true);
+            $('#premiumForm').hide();
+            showPremiumGallery();
+            $("#uploadImageForm").show();
+            $("#unlockBtn").hide();
+        } else {
+            alert('Incorrect code. Please try again.');
+            $("#uploadImageForm").hide();
 
+        }
+    });
 
-$("#accordion").accordion({
-    collapsible: true,
-    heightStyle: "fill"
-});
+    $("#accordion").accordion({
+        collapsible: true,
+        heightStyle: "fill"
+    });
 
-// Premium feature sections
-$(".row").sortable({
-    items: $(".column")
-});
-let defaultImageURLs = [
-    "https://example.com/default-image1.jpg",
-    "https://example.com/default-image2.jpg",
-    "https://example.com/default-image3.jpg"
-];
-let ImageGalleryDatabase = JSON.parse(localStorage.getItem("Gallery")) || [];
+    $(".row").sortable({
+        items: $(".column")
+    });
+    
+    let defaultImageURLs = [
+        "https://images.unsplash.com/photo-1710170600227-b6c13928f878?q=80&w=1966&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1712414951449-424e662f6e74?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1712514496282-6f3a73aff338?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ];
+  
 
-$(document).ready(function() {
     if (ImageGalleryDatabase.length === 0) {
         defaultImageURLs.forEach(function(url) {
             let defaultImage = {
@@ -165,70 +146,69 @@ $(document).ready(function() {
         localStorage.setItem("Gallery", JSON.stringify(ImageGalleryDatabase));
     }
 
-    $('#chooseImage').on('drop', function(event) {
-        event.preventDefault();
-        handleFiles(event.originalEvent.dataTransfer.files);
-    });
+    function showPremiumGallery() {
+        let html = "";
+        ImageGalleryDatabase.forEach((img, index) => {
+            html += createCard(img, index);
+        });
+        $("#gallery-container").prepend(html);
+    }
 
-    $('#chooseImage').on('change', function() {
-        handleFiles($('#chooseImage')[0].files);
-    });
+    function createCard(img, index) {
+        return `<div class="column gallery-img">
+                    <div class="card">
+                        <div class="card-content"></div>
+                        <img class="card-img" src="${img.dataURL}"> 
+                    </div>
+                </div>`;
+    }
+
+    
+
 });
 
-function showPremiumGallery() {
-    let html = "";
-    ImageGalleryDatabase.forEach((img, index) => {
-        html += createCard(img, index);
-    });
-    $("#gallery-container").prepend(html);
-}
-
-function createCard(img, index) {
-    return `<div class="column gallery-img">
-                <div class="card">
-                    <div class="card-content"></div>
-                    <img class="card-img" src="${img.dataURL}"> 
-                </div>
-            </div>`;
-}
-
-// Fade in Fade out effect using Ajax() get()
+// Define page outside the loadmore function
 let page = 1;
-const maxPages = 10;
 let perPage = 3;
 
 function loadmore() {
-    if (page <= maxPages) {
-        $.ajax({
-            url: 'https://api.unsplash.com/photos/',
-            type: 'GET',
-            data: {
-                client_id: 'zbqpFXTRnAW5i_CiT7asY3n7sCy5dTYisF810tG5iWs',
-                page: page,
-                per_page: perPage
-            },
-            success: function(response) {
-                response.forEach(function(photo) {
-                    let card = $('<div>', {
-                        class: 'column',
-                        style: 'display: none;'
-                    }).html(`<img class="card-img" src="${photo.urls.regular}" alt="${photo.user.bio}">`)
-                    $('#content').append(card);
-                    card.fadeIn(2000);
-                });
-                page++;
-            },
-            error: function(xhr, status, error) {
-                console.error('Error loading content:', error);
-            }
-        });
-    }
+    $.ajax({
+        url: 'https://api.unsplash.com/photos/',
+        type: 'GET',
+        data: {
+            client_id: 'zbqpFXTRnAW5i_CiT7asY3n7sCy5dTYisF810tG5iWs',
+            page: page,
+            per_page: perPage
+        },
+        success: function(response) {
+            response.forEach(function(photo) {
+                let card = $('<div>', {
+                    class: 'column',
+                    style: 'display: none;'
+                }).html(`<img class="card-img" src="${photo.urls.regular}" alt="${photo.user.bio}">`)
+                $('#content').append(card);
+                card.fadeIn(2000);
+            });
+            page++;
+        },
+        error: function(xhr, status, error) {
+            console.error('Error loading content:', error);
+        }
+    });
 }
 
+// Initial load
 loadmore();
 
+// Load more on scroll
 $(window).scroll(function() {
     if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
         loadmore(); 
     }
 });
+
+
+// Check if premium is unlocked
+function isPremiumUnlocked() {
+    return sessionStorage.getItem('premiumUnlocked') === 'true';
+}
