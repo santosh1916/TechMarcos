@@ -3,7 +3,7 @@ $("#accordion").accordion({
     collapsible: true,
     heightStyle: "fill"
 })
-//!XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+//!XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 // Ques 2 functionality js code
 function openAddMenuModail(){
@@ -17,58 +17,52 @@ function closeModel(){
 $(document).ready(function() {
   let navData = JSON.parse(localStorage.getItem("NavData")) || [];
 
+function generateMenuRecursive(menuItems, parentElement) {
+  menuItems.forEach(item => {
+    let menuItem = $(`<li><a class="btn" href="#" title="${item.links}">${item.links}</a></li>`);
+    if (item.submenus && item.submenus.length > 0) {
+      let submenu = $(`<ul class='list-wrapper'></ul>`);
+      generateMenuRecursive(item.submenus, submenu); // Recursive call for nested menus
+      menuItem.append(submenu);
+    }
+    parentElement.append(menuItem);
+  });
+}
+
+$(document).ready(function() {
   function generateMenu() {
     let parentLink = $("#parent-link");
     parentLink.empty(); // Clear existing menu items
+    generateMenuRecursive(navData, parentLink);
     
-    navData.forEach(item => {
-      let menuItem = $(`<li class = "parent-li"><a class="btn" href="#" title="${item.links}">${item.links}</a></li>`);
-      if (item.sublinks && item.sublinks.length > 0) {
-        let submenu = $(`<ul class='subnav'></ul>`);
-        item.sublinks.forEach(sublink => {
-          submenu.append(`<li><a class="btn" href="#">${sublink}</a></li>`);
-        });
-        menuItem.append(submenu);
-      }
-      parentLink.append(menuItem);
-    });
-
     // Populate the select dropdown based on existing links in navData
     let selectDropdown = $("#addto");
     selectDropdown.empty();
-    selectDropdown.append(`
-    <option value="" selected>CHOOSE...</option>
-                <option value="PARENT">PARENT</option>
-    `)
-    navData.forEach(elem => {
-      selectDropdown.append(`<option value="${elem.links}">${elem.links}</option>`);
-      });
-    }
+    selectDropdown.append(`<option value="" selected>CHOOSE...</option>`);
+    selectDropdown.append(`<option value="PARENT">PARENT</option>`);
+    generateSelectOptions(navData, selectDropdown);
+  }
+
+  function generateSelectOptions(menuItems, selectElement) {
+    menuItems.forEach(item => {
+      selectElement.append(`<option value="${item.links}">${item.links}</option>`);
+      if (item.submenus && item.submenus.length > 0) {
+        generateSelectOptions(item.submenus, selectElement); // Recursive call for nested items
+      }
+    });
+  }
 
   // Function to append a new menu item
   function appendMenu(item) {
     let parentLink = $("#parent-link");
     let menuItem = $(`<li><a class="btn" href="#" title="${item.links}">${item.links}</a></li>`);
-    if (item.sublinks && item.sublinks.length > 0) {
+    if (item.submenus && item.submenus.length > 0) {
       let submenu = $(`<ul class='subnav'></ul>`);
-      item.sublinks.forEach(sublink => {
-        submenu.append(`<li><a class="btn" href="#">${sublink}</a></li>`);
-      });
+      generateMenuRecursive(item.submenus, submenu); // Generate nested menus
       menuItem.append(submenu);
     }
     parentLink.append(menuItem);
-    
   }
-
-  // Show child elem on click parent link
-  $("#parent-link").on("click mouseleave mouseenter", ".btn", function(e) {
-    if(e.type == 'mouseenter'){
-      $(this).next(".subnav").addClass("scale-up");
-    }
-    if(e.type == 'click'){
-      $(this).next(".subnav").toggleClass("scale-up");
-    }
-  });
 
   // Form submission handling
   $('.form-wrapper').submit((e) => {
@@ -79,25 +73,42 @@ $(document).ready(function() {
     if (addto === 'PARENT' || !addto) {
       let data = {
         links: menuData,
-        sublinks: []
+        submenus: [] // Initialize submenus array
       };
       navData.push(data);
       appendMenu(data); // Append the new menu item
     } else {
-      let parent = navData.find(item => item.links === addto);
+      let parent = findMenuItem(navData, addto);
       if (parent) {
-        parent.sublinks.push(menuData);
+        parent.submenus.push({ links: menuData, submenus: [] }); // Push to appropriate submenus array
         generateMenu(); // Regenerate the entire menu
       }
     }
-    alert("link add successFull")
+    alert("Link added successfully");
     localStorage.setItem("NavData", JSON.stringify(navData));
+    $('.form-wrapper')[0].reset();
+    closeModel()
   });
 
   // Initial menu generation
   generateMenu();
 });
-// !XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+// Helper function to find a menu item by its link value recursively
+function findMenuItem(menuItems, link) {
+  for (let i = 0; i < menuItems.length; i++) {
+    if (menuItems[i].links === link) {
+      return menuItems[i];
+    }
+    if (menuItems[i].submenus && menuItems[i].submenus.length > 0) {
+      let found = findMenuItem(menuItems[i].submenus, link);
+      if (found) return found;
+    }
+  }
+  return null;
+}
+});
+// !XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 
