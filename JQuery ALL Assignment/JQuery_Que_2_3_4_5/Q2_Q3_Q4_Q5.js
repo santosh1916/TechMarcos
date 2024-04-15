@@ -150,7 +150,8 @@ function handleFiles(files) {
         localStorage.setItem("Gallery", JSON.stringify(ImageGalleryDatabase));
         if (i === files.length - 1) {
           $('#chooseImage').val(""); // Reset file input field
-          alert("Data saved to localStorage. Please reload the page.");
+          // alert("Data saved to localStorage. Please reload the page.");
+          showData();
         }
       };
       reader.readAsDataURL(files[i]);
@@ -160,12 +161,31 @@ function handleFiles(files) {
 
 // Show all cards in the gallery
 function showData() {
+  $("#gallery-container").empty();
   let html = "";
+
   ImageGalleryDatabase.forEach((img, index) => {
     html += createCard(img, index);
   });
-  $("#gallery-container").prepend(html);
+
+  $("#gallery-container").append(html); // Append existing images
+
+  // Add default image card at the end
+  html = `<div class="column add-image-card">
+            <form action="#" enctype="multipart/form-data">
+              <label for="chooseImage" class="chooseImage-label">
+                <span class="circle-box">
+                  <span class="line"></span>
+                  <span class="line vertical-line"></span>
+                </span>
+                <input class="chooseImage-input" type="file" accept="image/*" title="Add Image" id="chooseImage" multiple>
+              </label>
+            </form>
+          </div>`;
+  
+  $("#gallery-container").append(html); // Append default image card
 }
+
 
 // Function to create a single card
 function createCard(img, index) {
@@ -180,7 +200,7 @@ function createCard(img, index) {
 // Initial display of data
 showData();
 
-//! xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//! xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
 

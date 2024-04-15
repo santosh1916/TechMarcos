@@ -78,7 +78,6 @@ select[class='form-input']{
     list-style: none;
 }
 .list-wrapper li{
-    width: 100%;
     position: relative;
     padding: 10px;
     &&:hover{
