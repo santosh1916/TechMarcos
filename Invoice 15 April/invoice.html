@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice-Gen 15 April 2024</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="invoice.css">
+</head>
+<body>
+    <aside class="left">
+        <div class=""></div>
+    </aside>
+    <main class="right">
+        <header>
+            <nav class="navbar">
+                <div class="nav-btn-wrapper">
+                    <a href="#" class="btn" title="Back"><i class="ri-arrow-left-line"></i></a>
+                    <span class="text-md">Create Invoice</span>
+                </div>
+                <div class="nav-btn-wrapper">
+                    <a href="#" class="btn" title="View"><i class="ri-eye-line"></i></a>
+                    <a href="#" class="btn" title="View">Save to Draft</a>
+                    <button type="button" class="btn btn-theme" title="View" disabled>Save and Continue</button>
+                </div>
+            </nav>
+        </header>
+        <section>
+            <form action="invoice" method="post" class="form-container">
+                <div class="seventh form-container">
+                    <!--! Company form Start-->
+                    <div class="form-wrapper" id="company_form">
+                        <!-- Company form insert here -->
+                        <div class="d-flex">
+                            <h1 class="text-md">Company Information & Details</h1>
+                            <button type="button" class="btn text-xl" id="toggle_btn" title="Toggle Dropdown"><i class="ri-arrow-drop-down-line"></i></button>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-wrapper third">
+                                <label for="company_name" class="form-label">Company Name</label>
+                                <input type="text" class="form-input" id="company_name">
+                            </div>
+                            <div class="input-wrapper third">
+                                <label for="phone_no" class="form-label">Phone Number</label>
+                                <input type="number" class="form-input" id="phone_no">
+                            </div>
+                            <div class="input-wrapper third">
+                                <label for="zip" class="form-label">Zip Code</label>
+                                <input type="number" class="form-input" id="zip">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-wrapper full">
+                                <label for="address" class="form-label">Address :</label>
+                                <textarea type="text" class="form-input" id="address"></textarea>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-wrapper half">
+                                <label for="city" class="form-label">City</label>
+                                <select name="city" class="form-input" id="city">
+                                    <option value="">City1</option>
+                                    <option value="">City2</option>
+                                    <option value="">City3</option>
+                                </select>
+                            </div>
+                            <div class="input-wrapper half">
+                                <label for="state" class="form-label">State</label>
+                                <select name="state" class="form-input" id="state">
+                                    <option value="">state1</option>
+                                    <option value="">state2</option>
+                                    <option value="">state3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!--! Company form End -->
+
+                    <!-- ! Bill main form start -->
+                    <div class="form-wrapper">
+                        <h3 class="text-md">Invoice</h3>
+                        <div class="input-group">
+                            <div class="input-wrapper half">
+                                <label for="invoice_no" class="form-label">Invoice Number</label>
+                                <input type="number" class="form-input" id="invoice_no">
+                            </div>
+                            <div class="input-wrapper half">
+                                <label for="refrence_no" class="form-label">Refrence Number</label>
+                                <input type="number" class="form-input" id="refrence_no">
+                            </div>
+                        </div>
+                        <!-- table For add item form -->
+                        <table class="table-wrapper">
+                            <thead class="t-head">
+                                <tr class="table-row">
+                                    <!-- <th>Move</th> -->
+                                    <th colspan="2">Item</th>
+                                    <th>Description</th>
+                                    <th>Rate</th>
+                                    <th>QTY</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody class="t-body">
+                                <tr class="table-row">
+                                    <td class="btn-wrapper"><span class="drag-btn"><i class="ri-draggable"></i></span></td>
+                                    <td><input type="text" class="form-input" placeholder="Enter Item" id="item_name"></td>
+                                    <td><input type="text" class="form-input" placeholder="Description" id="description"></td>
+                                    <td><input type="number" class="form-input" placeholder="Rate" id="rate"></td>
+                                    <td><input type="number" class="form-input" value="1" placeholder="Quantity" id="quantity"></td>
+                                    <td><input type="number" class="form-input" placeholder="Amount" id="amount"></td>
+                                </tr>
+                                <tr class="table-row">
+                                    <td class="btn-wrapper"><span class="drag-btn"><i class="ri-draggable"></i></span></td>
+                                    <td><input type="text" class="form-input" placeholder="Enter Item" id="item_name"></td>
+                                    <td><input type="text" class="form-input" placeholder="Description" id="description"></td>
+                                    <td><input type="number" class="form-input" placeholder="Rate" id="rate"></td>
+                                    <td><input type="number" class="form-input" value="1" placeholder="Quantity" id="quantity"></td>
+                                    <td><input type="number" class="form-input" placeholder="Amount" id="amount"></td>
+                                </tr>
+                                <tr class="table-row">
+                                    <td class="btn-wrapper"><span class="drag-btn"><i class="ri-draggable"></i></span></td>
+                                    <td><input type="text" class="form-input" placeholder="Enter Item" id="item_name"></td>
+                                    <td><input type="text" class="form-input" placeholder="Description" id="description"></td>
+                                    <td><input type="number" class="form-input" placeholder="Rate" id="rate"></td>
+                                    <td><input type="number" class="form-input" value="1" placeholder="Quantity" id="quantity"></td>
+                                    <td><input type="number" class="form-input" placeholder="Amount" id="amount"></td>
+                                </tr>
+                                <tr><td colspan="6" class="btn-wrapper"><button type="button" class="btn btn-theme-text">Add Item</button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- ! Bill main form end -->
+                </div>
+
+                <div class="form-wrapper third">
+                    <h2>Invoice Information & Payment</h2>
+                    <div class="input-wrapper">
+                        <label for="send_to" class="form-label">Send To</label>
+                        <input type="text" class="form-input" id="send_to">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-wrapper half">
+                            <label for="issue_date" class="form-label">Issue Date</label>
+                            <input type="date" class="form-input" id="issue_date">
+                        </div>
+                        <div class="input-wrapper half">
+                            <label for="due_date" class="form-label">Due Date</label>
+                            <input type="date" class="form-input" id="due_date">
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <span>Subtotal</span>
+                        <span>00.00</span>
+                    </div>
+                    <div class="d-flex">
+                        <span>Tax</span>
+                        <span>0.00</span>
+                    </div>
+                    <div class="btn-wrapper">
+                        <button type="button" class="btn" title="Add Discount">Add Discount</button>
+                    </div>
+                    <div class="d-flex footer">
+                        <span>Total</span>
+                        <span>00.00</span>
+                    </div>
+                </div>
+
+            </form>
+        </section>
+    </main>
+
+    <script src="invoice.js"></script>
+</body>
+</html>
+
+<!-- <div class="third">
+    
+</div> -->
