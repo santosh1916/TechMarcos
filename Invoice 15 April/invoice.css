@@ -69,9 +69,7 @@ html , body{
 .list-group .list-group{
   padding-left: 2rem;
   margin-top: .5rem;
-  height: 0;
   transition: all ease-in-out .1s;
-  transform: scaleY(0);
   transform-origin: top;
 }
 
@@ -317,27 +315,6 @@ html , body{
   /* height: 80px; */
   transition: all ease-in-out .3s;
 }
-#toggle_btn:hover #company_form{
-  background-color: red;
-}
-
-#myForm::after{
-  display: none;
-  content: "";
-  border-radius: 10px;
-  width: calc(82% - 14px);
-  height: 90%;
-  background-color: rgba(180, 180, 180, 0.501);
-  position: absolute;
-  cursor: not-allowed;
-}
-#myForm.hide-after::after {
-  display: none;
-}
-
-
-
-
 
 
 /* review file style  */
@@ -368,7 +345,7 @@ html , body{
 }
 .review-container{
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
   background-color: #fff;
   padding: 2rem 3rem;
   display: flex;

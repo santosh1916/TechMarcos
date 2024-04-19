@@ -6,6 +6,7 @@
     <title>Invoice-Gen 15 April 2024</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -32,7 +33,7 @@
                 <li><a href="#" class="btn"><span class="btn-icon"><i class="ri-rocket-line"></i></span> Lunchpad</a></li>
                 <li><a href="#" class="btn"><span class="btn-icon"><i class="ri-dashboard-line"></i></span> Dashboard</a></li>
                 <li>
-                    <button type="button" href="#" class="btn toggle_btn"><span class="btn-icon"><i class="ri-bank-card-line"></i></span> Sales & Payment</button>
+                    <button type="button" href="#" class="btn"><span class="btn-icon"><i class="ri-bank-card-line"></i></span> Sales & Payment</button>
                     <ul class="list-group">
                         <li><a href="#" class="btn">Estimate</a></li>
                         <li><a href="../Invoice 15 April/invoice.html" class="btn" id="invoice-btn">Invoices</a></li>
@@ -56,7 +57,7 @@
                 </div>
                 <div class="nav-btn-wrapper">
                     <a href="#" class="btn btn-light" title="View"><i class="ri-eye-line"></i></a>
-                    <a href="#" class="btn btn-light" title="View">Save to Draft</a>
+                    <button type="button" class="btn btn-light" title="View" onclick="generateInvoice()">Print Invoice</button>
                     <button type="button" class="btn btn-theme" title="View" id="submit-btn">Save and Continue</button>
                 </div>
             </nav>
@@ -254,7 +255,7 @@
               
                     </tbody>
                 </table>
-                <div class="flex-column bill-data">
+                <div class="flex-column bill-data" id="cal-data">
                     
                 </div>
                 <div class="flex-column">
@@ -269,9 +270,6 @@
         </div>
         <button type="button" class="btn-theme btn" onclick="printDiv('printarea')">Print</button>
     </div>
-
-
-    
 
 
     <script src="invoice.js"></script>
