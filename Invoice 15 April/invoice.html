@@ -86,17 +86,15 @@
                             <div class="input-wrapper third">
                                 <label for="city" class="form-label">City</label>
                                 <select name="city" class="form-input" id="city">
-                                    <option value="">City1</option>
-                                    <option value="">City2</option>
-                                    <option value="">City3</option>
+                                    <option value="City1">City1</option>
+                                    <option value="City2">City2</option>
                                 </select>
                             </div>
                             <div class="input-wrapper third">
                                 <label for="state" class="form-label">State</label>
                                 <select name="state" class="form-input" id="state">
-                                    <option value="">state1</option>
-                                    <option value="">state2</option>
-                                    <option value="">state3</option>
+                                    <option value="state1">state1</option>
+                                    <option value="state2">state2</option>
                                 </select>
                             </div>
                             <div class="input-wrapper third">
@@ -150,7 +148,7 @@
                     <!-- ! Bill main form end -->
                 </div>
 
-                <div class="form-wrapper third bill-form">
+                <div class="form-wrapper third" id="bill-form">
                     <h2>Invoice Information & Payment</h2>
 
                     <div class="input-wrapper">
@@ -174,17 +172,15 @@
                         <div class="input-wrapper half">
                             <label for="city" class="form-label">City</label>
                             <select name="city" class="form-input" id="city">
-                                <option value="">City1</option>
-                                <option value="">City2</option>
-                                <option value="">City3</option>
+                                <option value="City1">City1</option>
+                                <option value="City2">City2</option>
                             </select>
                         </div>
                         <div class="input-wrapper half">
                             <label for="state" class="form-label">State</label>
                             <select name="state" class="form-input" id="state">
-                                <option value="">state1</option>
-                                <option value="">state2</option>
-                                <option value="">state3</option>
+                                <option value="state1">state1</option>
+                                <option value="state2">state2</option>
                             </select>
                         </div>
                     </div>
@@ -223,6 +219,60 @@
             </form>
         </section>
     </main>
+
+    <div class="preview">
+        <button type="button" class="btn preveiw-close" onclick="closePreview()">close</button>
+        <div class="genrated-invoice" id="printarea">
+            <section class="review-container">
+                <div class="d-flex">
+                    <div>
+                        <h1 class="text-2xl">Invoice</h1>
+                        <button class="btn text-2xl" type="button"><i class="ri-edit-box-line"></i> Click to edit</button>
+                    </div>
+                    <address class="flex-column text-r" id="company_address">
+                        
+                    </address>
+                </div>
+                <div class="d-flex">
+                    <address class="flex-column" id="customer_address">
+                        <!--  -->
+                    </address>
+                    <div class="d-flex f-wrap" id="invoiceDets">
+                        
+                    </div>
+                </div>
+                <table class="review-table">
+                    <thead>
+                        <tr>
+                            <th class="head-xsm">DESCRIPTION</th>
+                            <th class="head-xsm">RATE</th>
+                            <th class="head-xsm">QTY</th>
+                            <th class="head-xsm">AMOUNT</th>
+                        </tr>
+                    </thead>
+                    <tbody id="items-row">
+              
+                    </tbody>
+                </table>
+                <div class="flex-column bill-data">
+                    
+                </div>
+                <div class="flex-column">
+                    <span class="head-xsm">Note</span>
+                    <span>Thank you for your business</span>
+                </div>
+                <div class="flex-column">
+                    <span class="head-xsm">Terms</span>
+                    <span>Please pay within 30 days using the link in your invoice email</span>
+                </div>
+              </section>
+        </div>
+        <button type="button" class="btn-theme btn" onclick="printDiv('printarea')">Print</button>
+    </div>
+
+
+    
+
 
     <script src="invoice.js"></script>
 </body>
