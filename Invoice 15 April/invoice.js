@@ -1,5 +1,4 @@
 let currentIndex = 0;
-let printIndex = 0;
 let formId = `UI${Math.floor(Math.random() * 10000000000 + 1)}`
 $("#invoice_no").val(formId);
 $("#refrence_no").val(formId);
@@ -78,12 +77,12 @@ function saveToLocalStorage() {
     invoiceNo: invoiceNo,
     referenceNo: referenceNo
   };
-
   if (invoiceNo && referenceNo) {
     oneTimeAllData.push(invoiceId);
   }
-  if (!updateRowData()) {
+  if (!itemsData) {
     alert("Please add items")
+    return;
   }else{
     oneTimeAllData.push(itemsData);
   }
@@ -107,6 +106,8 @@ function saveToLocalStorage() {
         companyAddress: companyAddress
       };
       oneTimeAllData.push(companyData);
+    }else{
+      return;
     }
   });
 
@@ -133,10 +134,13 @@ function saveToLocalStorage() {
         dueDate : dueDate
       };
       oneTimeAllData.push(customerData);
+    }else{
+      alert("Pleas fill Invoice Information & Payment section")
+      return;
     }
   });
 
-  if (oneTimeAllData.length > 0) {
+  if (oneTimeAllData.length > 3) {
     invoiceDataBase.push(oneTimeAllData);
     localStorage.setItem("invoiceData", JSON.stringify(invoiceDataBase)); // Store data in localStorage
     alert("Data saved to localStorage");
@@ -147,6 +151,7 @@ function saveToLocalStorage() {
     oneTimeAllData = []; // Reset data array
   } else {
     alert("Please fill in all required fields");
+    return;
   }
 }
 
@@ -158,12 +163,13 @@ function generateInvoice() {
     return; // Exit the function if no data is available
   }
   let randomNumber = Math.floor(Math.random() * 10 + 5)
-  let invoiceId = invoiceDataBase[printIndex][0];
-  let itemData = invoiceDataBase[printIndex][1];
-  let companyData = invoiceDataBase[printIndex][2];
-  let customerData = invoiceDataBase[printIndex][3];
+  let invoiceId = invoiceDataBase[0][0];
+  let itemData = invoiceDataBase[0][1];
+  let companyData = invoiceDataBase[0][2];
+  let customerData = invoiceDataBase[0][3];
   let subTotal = 0;
-
+  let tbody = $("#items-row")
+  tbody.empty();
   itemData.forEach(function (item) {
     subTotal += item.itemRate * item.quantity;
     let itemRow = `<tr>
@@ -178,7 +184,7 @@ function generateInvoice() {
                   <td>${item.quantity}</td>
                   <td>$${item.itemRate * item.quantity}</td>
                 </tr>`;
-    $("#items-row").empty().append(itemRow); // Append row to table
+      tbody.append(itemRow); // Append row to table
   });
 
   let discount = randomNumber + 100;
@@ -250,7 +256,6 @@ function generateInvoice() {
   $("#invoiceDets").empty().append(invoiceDets);
   $("#cal-data").empty().append(calData);
   $(".preview").show()
-  $("#myForm").removeClass("hide-after");
 }
 
   // !Print function
@@ -261,14 +266,14 @@ function printDiv(divId) {
   document.body.innerHTML = printContents;
 
   window.print();
-
   document.body.innerHTML = originalContents;
-  location.reload(); // Reloads the current page
+  location.reload();
+  localStorage.clear();
 }
 
 function closePreview(){
-  $(".preview").hide()
-  location.reload(); // Reloads the current page
+  location.reload();
+  localStorage.clear();
 
 }
 
@@ -286,13 +291,6 @@ $(".t-body").sortable({
     // Additional actions after sorting if needed
   }
 });
-
-// $(".toggle_btn").click(() => {
-//   $(".list-group .list-group").css({
-//     height: 'auto',
-//     transform: 'scaleY(1)'
-//   })
-// });
 
 $(document).ready(() => {
   $(".list-group .btn").click(function(e) {
@@ -314,6 +312,4 @@ $("#submit-btn").click((event) => {
   event.preventDefault();
   saveToLocalStorage();
   generateInvoice();
-  printIndex += 1;
-   // Call generateInvoice() after saving data
 });
